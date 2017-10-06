@@ -14,3 +14,6 @@ ptit appli de l systems http://sol.gfxile.net/lsys.html
 
 des veines en l systemes !!!! http://pepefx.blogspot.fr/2013/05/in-this-nth-experiment-i-wanted-to.html
 
+Grammars and L-systems with applications to vegetation and levelshttp://pcgbook.com/wp-content/uploads/chapter05.pdf
+
+Modélisation de fruits http://liris.cnrs.fr/~egfr/BestPapers/Troisieme2014_Bohl.pdf
