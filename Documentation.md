@@ -5,3 +5,9 @@ Page wikipedia : (En) https://en.wikipedia.org/wiki/L-system
 
 PDF cool : http://algorithmicbotany.org/papers/abop/abop-ch1.pdf
 
+
+utilisation des l systems dans un jeu : https://dspace.mah.se/bitstream/handle/2043/23177/Lindenmayer%27s_Defense.pdf?sequence=2
+
+mots perses en l stysteme http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.709.3327&rep=rep1&type=pdf
+
+ptit appli de l systems http://sol.gfxile.net/lsys.html
