@@ -1,5 +1,5 @@
 import turtle
-
+    
 ## L-systèmes
 
 def L_system ( graine, regle_evolution, profondeur):
@@ -90,30 +90,37 @@ affichage3(L_system( "fx", regle3,7))
 
 
 def regle4(f):
-    if f=="X" :
-        return "F[-X][X]F[-X]+FX"
-    elif f =="F" :
+    if f=="F" :
         return "FF"
+    elif f=="X" :
+        return "F-[[X]+X]+F[+FX]-X"
     else :
         return f
 
 def affichage4(mot):
     turtle.resetscreen()
     turtle.speed("fastest")
-    turtle.left(60)
+    turtle.left(90)
+    turtle.penup()
+    turtle.goto(0,-300)
+    turtle.pendown()
+    turtle.tracer(0, 0)
     pos=[]
     for k in mot:
         if k=="F":
-            turtle.forward(3)
+            turtle.forward(2)
         elif k=="-":
-            turtle.left(25)
+            turtle.left(22.5)
         elif k=="+":
-            turtle.right(25)
+            turtle.right(22.5)
         elif k=="[":
-            pos.append( turtle.position())
+            pos.append( (turtle.position(),turtle.heading()))
         elif k=="]":
             turtle.penup()
-            turtle.goto(pos.pop())
+            x=pos.pop()
+            turtle.goto(x[0])
+            turtle.setheading(x[1])
             turtle.pendown()
+    turtle.update()
 
-affichage4(L_system( "X", regle4,6))
+affichage4(L_system( "X", regle4,8))
