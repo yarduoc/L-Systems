@@ -1,0 +1,25 @@
+Sujet DM :
+http://pauillac.inria.fr/ups/private/ds.html#DS44
+
+
+Soit P la règle d'évoltion du L-Système et a sa graine
+Soit G le L-système défini sur l'alphabet A par P et acA
+
+Définition 1 :
+Si pour tout ncN , p^n(a)=/=epsilon le L-système est immortel
+Si il existe n0cN tq n>no => p^n(a)=epsilon et p^n0(a)=/=epsilon, le L-système est dit mortel
+
+Propriété 1 :
+Un L-système est soit mortel, soit immortel
+
+Propriété 2 :
+Un L-système est immortel <=> Il existe xcA tq il existe ncN tq xcP^n(x)
+
+Propriété 3 :
+La durée de vie d'un L-système mortel est d'au plus n=|A|
+
+Propriété 4 :
+Il existe xcA tq il existe ncN tq P^n(x) contient deux x => langage défini par G est infni
+(réciproque fausse)
+
+
