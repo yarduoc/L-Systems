@@ -17,3 +17,5 @@ des veines en l systemes !!!! http://pepefx.blogspot.fr/2013/05/in-this-nth-expe
 Grammars and L-systems with applications to vegetation and levelshttp://pcgbook.com/wp-content/uploads/chapter05.pdf
 
 Modélisation de fruits http://liris.cnrs.fr/~egfr/BestPapers/Troisieme2014_Bohl.pdf
+
+l système stochastique en 3d https://www.csee.umbc.edu/~ebert/693/TLin/node18.html
