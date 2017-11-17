@@ -1,13 +1,22 @@
 
-I) Etude des L-Systèmes déterministes (LSD ou DOL)
-  1)Turtle (2D)
+I) Etude des L-Systèmes déterministes (LSD ou DOL) (OK)
+
+  1)Turtle (2D) (OK)
+
     -Fractale
-  2)Théorie
+
+  2)Théorie (OK plus ou moins on pourras tjrs revenir dessus après)
+
     -PDF
     -Wiki
     -Theory.ens
-II) Etude des L-systèmes stochastiques (LSS ou SOL)
+
+II) Etude des L-systèmes stochastiques (LSS ou SOL) <---------
+
   1)Turtle 2D
+
   2)Théorie
-III) L-systèmes pour 3 dimensions
-IV) Création d'un L-Système
+
+III) L-systèmes pour 3 dimensions <--------------
+
+IV) Création d'un L-Système personnalisé 
