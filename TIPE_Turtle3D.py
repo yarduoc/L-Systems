@@ -1,4 +1,5 @@
 ## Turtle 3D by Yarduoc
+import bpy
 
 from numpy import *
 
@@ -166,18 +167,92 @@ class turtle3D :
         self.current_orientation = Euclidian_Space_Vector.get_vector(orientation)
     def set_thickness(self, value):
         self.line_thickness = value
+    
+    # Blender
+    
+    def cylindre_entre_points( p1, p2, rayon):
+    
+    
+        x1,y1,z1 = p1[0], p1[1], p1[2]
+        x2,y2,z2 = p2[0], p2[1], p2[2]
+    
+        dx = x2 - x1
+        dy = y2 - y1
+        dz = z2 - z1
+    
+        dist = sqrt(dx**2 + dy**2 + dz**2)
+    
+        bpy.ops.mesh.primitive_cylinder_add(
+            radius = rayon,
+            depth = dist,
+            location = (dx/2 + x1, dy/2 + y1, dz/2 + z1)
+        )
+    
+        phi = arctan2(dy,dx)
+        theta = arccos(dz/dist)
+    
+        bpy.context.object.rotation_euler[1] = theta
+        bpy.context.object.rotation_euler[2] = phi
+    
+    def taille ( liaisons):
+    
+    
+        [xmin,ymin,zmin] = liaisons[0][0]
+        [xmax,ymax,zmax] = liaisons[0][0]
+        
+        for liaison in liaisons:
+            
+            [(x1,y1,z1),(x2,y2,z2),rayon] =  liaison
+            
+            xmin = min(xmin, min(x1,x2))
+            xmax = max(xmax, max(x1,x2))
+            ymin = min(ymin, min(y1,y2))
+            ymax = max(ymax, max(y1,y2))
+            zmin = min(zmin, min(z1,z2))
+            zmax = max(zmax, max(z1,z2))
+            
+
+        return max (abs(xmax-xmin), abs(ymax - ymin), abs(zmax-zmin))
+    
+    def redimensionner(liaisons, dim):
+        
+        coef = dim / (self.taille(liaisons))
+        
+        for k in range (len(liaisons)) :
+            
+            [(x1,y1,z1),(x2,y2,z2),rayon] =  liaisons[k]
+        
+            x1 *= coef
+            x2 *= coef
+            y1 *= coef
+            y2 *= coef
+            z1 *= coef
+            z2 *= coef
+            rayon *= coef
+            
+            liaisons[k] = [(x1,y1,z1),(x2,y2,z2),rayon]
+            
+        return liaisons
+    
+    def blender_print ( self ,dimension):
+        
+        liaisons = self.redimensionner (self.stored_lines , dimension)
+        
+        for liaison in liaisons:
+            
+            [p1,p2,rayon] =  liaison
+            
+            self.cylindre_entre_points(p1,p2,rayon)
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+T = turtle3D()
+
+T.set_orientation((0,0,1))
+
+for _ in range (4) :
+    
+    T.forward(5)
+
+    T.rotate_Y (90)
+
+T.blender_print(5)
