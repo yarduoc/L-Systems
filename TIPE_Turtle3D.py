@@ -1,6 +1,6 @@
 ## Turtle 3D by Yarduoc
-import bpy
 
+import bpy
 from numpy import *
 
 class Euclidian_Space_Vector :
@@ -145,13 +145,13 @@ class turtle3D :
     def backward( self, length=1):
         self.forward(-length)
     
-    def rotate_X(self, angle):
+    def rotate_X( self, angle):
         self.current_orientation.rotate(angle,Euclidian_Space_Vector.X)
         
-    def rotate_Y(self, angle):
+    def rotate_Y( self, angle):
         self.current_orientation.rotate(angle,Euclidian_Space_Vector.Y)
         
-    def rotate_Z(self, angle):
+    def rotate_Z( self, angle):
         self.current_orientation.rotate(angle,Euclidian_Space_Vector.Z)
     
     def goto( self, coordinates):
@@ -170,89 +170,62 @@ class turtle3D :
     
     # Blender
     
-    def cylindre_entre_points( p1, p2, rayon):
-    
-    
+    def draw_cylinder( p1, p2, rayon):
         x1,y1,z1 = p1[0], p1[1], p1[2]
         x2,y2,z2 = p2[0], p2[1], p2[2]
-    
         dx = x2 - x1
         dy = y2 - y1
         dz = z2 - z1
-    
         dist = sqrt(dx**2 + dy**2 + dz**2)
-    
         bpy.ops.mesh.primitive_cylinder_add(
             radius = rayon,
             depth = dist,
             location = (dx/2 + x1, dy/2 + y1, dz/2 + z1)
         )
-    
         phi = arctan2(dy,dx)
         theta = arccos(dz/dist)
-    
         bpy.context.object.rotation_euler[1] = theta
         bpy.context.object.rotation_euler[2] = phi
     
-    def taille ( liaisons):
+    
+    def get_data_size( data_list):
+        (xmin,ymin,zmin) = data_list[0][0]
+        (xmax,ymax,zmax) = data_list[0][0]
+        for data in data_list:
+            ((x1,y1,z1),(x2,y2,z2),size) =  data
+            xmin = min( xmin, min( x1, x2))
+            xmax = max( xmax, max( x1, x2))
+            ymin = min( ymin, min( y1, y2))
+            ymax = max( ymax, max( y1, y2))
+            zmin = min( zmin, min( z1, z2))
+            zmax = max( zmax, max( z1, z2))
+        return max( abs( xmax-xmin), abs( ymax-ymin), abs( zmax-zmin))
+    
+    def resize_data( data_list, dimension):
+        coefficient = dimension / turtle3D.get_data_size( data_list)
+        for k in range ( len( data_list)) :
+            ((x1,y1,z1),(x2,y2,z2), size) =  data_list[k]
+            x1 *= coefficient
+            x2 *= coefficient
+            y1 *= coefficient
+            y2 *= coefficient
+            z1 *= coefficient
+            z2 *= coefficient
+            size *= coefficient
+            data_list[k] = [(x1,y1,z1),(x2,y2,z2), size]
+        return data_list
     
     
-        [xmin,ymin,zmin] = liaisons[0][0]
-        [xmax,ymax,zmax] = liaisons[0][0]
-        
-        for liaison in liaisons:
-            
-            [(x1,y1,z1),(x2,y2,z2),rayon] =  liaison
-            
-            xmin = min(xmin, min(x1,x2))
-            xmax = max(xmax, max(x1,x2))
-            ymin = min(ymin, min(y1,y2))
-            ymax = max(ymax, max(y1,y2))
-            zmin = min(zmin, min(z1,z2))
-            zmax = max(zmax, max(z1,z2))
-            
-
-        return max (abs(xmax-xmin), abs(ymax - ymin), abs(zmax-zmin))
-    
-    def redimensionner(liaisons, dim):
-        
-        coef = dim / (self.taille(liaisons))
-        
-        for k in range (len(liaisons)) :
-            
-            [(x1,y1,z1),(x2,y2,z2),rayon] =  liaisons[k]
-        
-            x1 *= coef
-            x2 *= coef
-            y1 *= coef
-            y2 *= coef
-            z1 *= coef
-            z2 *= coef
-            rayon *= coef
-            
-            liaisons[k] = [(x1,y1,z1),(x2,y2,z2),rayon]
-            
-        return liaisons
-    
-    def blender_print ( self ,dimension):
-        
-        liaisons = self.redimensionner (self.stored_lines , dimension)
-        
-        for liaison in liaisons:
-            
-            [p1,p2,rayon] =  liaison
-            
-            self.cylindre_entre_points(p1,p2,rayon)
+    def blender_print ( self, dimension):
+        data_list = turtle3D.resize_data( self.stored_lines, dimension)
+        for data in data_list:
+            (p1,p2,size) = data
+            turtle3D.draw_cylinder(p1,p2,size)
         
         
 T = turtle3D()
-
 T.set_orientation((0,0,1))
 
 for _ in range (4) :
-    
     T.forward(5)
-
     T.rotate_Y (90)
-
-T.blender_print(5)
