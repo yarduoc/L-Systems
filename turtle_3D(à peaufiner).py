@@ -153,12 +153,22 @@ affichage4(L_system( "X", regle4,8))
 #     turtle.tracer(0, 0)
 #     pos=[]
 #     for k in mot:
-#         if k=="F":
-#             turtle.forward(2)
+#         if k=="F" or k=="M" or k=="N" or k=="O" or k=="P" or k=="Y" or k=="Z":
+#             t.forward(2)
 #         elif k=="-":
-#             turtle.left(22.5)
+#             t.rotate_Z(22.5)
 #         elif k=="+":
-#             turtle.right(22.5)
+#             t.rotate_Z(-22.5)
+#         elif k=="&":
+#             t.rotate_Y(22.5)
+#         elif k=="^":
+#             t.rotate_Y(-22.5)
+#         elif k=="\":
+#             t.rotate_X(22.5)
+#         elif k=="/":
+#             t.rotate_Y(-22.5)
+#         elif k=="|":
+#             t.rotate_Z(180)
 #         elif k=="[":
 #             pos.append( (turtle.position(),turtle.heading()))
 #         elif k=="]":
