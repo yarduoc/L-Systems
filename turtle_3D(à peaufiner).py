@@ -163,7 +163,7 @@ affichage4(L_system( "X", regle4,8))
              t.rotate_Y(22.5)
          elif k=="^":
              t.rotate_Y(-22.5)
-         elif k=="\":
+         elif k=="\" :
              t.rotate_X(22.5)
          elif k=="/":
              t.rotate_Y(-22.5)
