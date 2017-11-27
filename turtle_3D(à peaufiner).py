@@ -167,6 +167,8 @@ affichage4(L_system( "X", regle4,8))
              t.rotate_Y(-22.5)
          elif k=="|":
              t.rotate_Z(180)
+         elif k=="\":
+             t.rotate_Y(22.5)
          elif k=="[":
              pos.append( (turtle.position(),turtle.heading()))
          elif k=="]":
