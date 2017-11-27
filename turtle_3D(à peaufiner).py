@@ -127,54 +127,54 @@ affichage4(L_system( "X", regle4,8))
 
 ## L_system 3D
 
-# def regle5(f):
-#     if f=="F":
-#         return "Y[++++++MF][-----NF][^^^^^OF][&&&&&PF]"
-#     elif f=="M":
-#         return "Z-M"
-#     elif f=="N":
-#         return "Z+N"
-#     elif f=="O":
-#         return "Z&O"
-#     elif f=="P":
-#         return "Z^P"
-#     elif f=="Y":
-#         return "Z-ZY+"
-#     elif f=="Z":
-#         return "ZZ"
-# 
-# def affichage5(mot):
-#     turtle.resetscreen()
-#     turtle.speed("fastest")
-#     turtle.left(90)
-#     turtle.penup()
-#     turtle.goto(0,-300)
-#     turtle.pendown()
-#     turtle.tracer(0, 0)
-#     pos=[]
-#     for k in mot:
-#         if k=="F" or k=="M" or k=="N" or k=="O" or k=="P" or k=="Y" or k=="Z":
-#             t.forward(2)
-#         elif k=="-":
-#             t.rotate_Z(22.5)
-#         elif k=="+":
-#             t.rotate_Z(-22.5)
-#         elif k=="&":
-#             t.rotate_Y(22.5)
-#         elif k=="^":
-#             t.rotate_Y(-22.5)
-#         elif k=="\":
-#             t.rotate_X(22.5)
-#         elif k=="/":
-#             t.rotate_Y(-22.5)
-#         elif k=="|":
-#             t.rotate_Z(180)
-#         elif k=="[":
-#             pos.append( (turtle.position(),turtle.heading()))
-#         elif k=="]":
-#             turtle.penup()
-#             x=pos.pop()
-#             turtle.goto(x[0])
-#             turtle.setheading(x[1])
-#             turtle.pendown()
-#     turtle.update()
+ def regle5(f):
+     if f=="F":
+         return "Y[++++++MF][-----NF][^^^^^OF][&&&&&PF]"
+     elif f=="M":
+         return "Z-M"
+     elif f=="N":
+         return "Z+N"
+     elif f=="O":
+         return "Z&O"
+     elif f=="P":
+         return "Z^P"
+     elif f=="Y":
+         return "Z-ZY+"
+     elif f=="Z":
+         return "ZZ"
+ 
+ def affichage5(mot):
+     turtle.resetscreen()
+     turtle.speed("fastest")
+     turtle.left(90)
+     turtle.penup()
+     turtle.goto(0,-300)
+     turtle.pendown()
+     turtle.tracer(0, 0)
+     pos=[]
+     for k in mot:
+         if k=="F" or k=="M" or k=="N" or k=="O" or k=="P" or k=="Y" or k=="Z":
+             t.forward(2)
+         elif k=="-":
+             t.rotate_Z(22.5)
+         elif k=="+":
+             t.rotate_Z(-22.5)
+         elif k=="&":
+             t.rotate_Y(22.5)
+         elif k=="^":
+             t.rotate_Y(-22.5)
+         elif k=="\":
+             t.rotate_X(22.5)
+         elif k=="/":
+             t.rotate_Y(-22.5)
+         elif k=="|":
+             t.rotate_Z(180)
+         elif k=="[":
+             pos.append( (turtle.position(),turtle.heading()))
+         elif k=="]":
+             turtle.penup()
+             x=pos.pop()
+             turtle.goto(x[0])
+             turtle.setheading(x[1])
+             turtle.pendown()
+     turtle.update()
