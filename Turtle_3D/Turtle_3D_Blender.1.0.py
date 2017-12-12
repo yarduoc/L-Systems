@@ -109,7 +109,7 @@ class Euclidian_Space_Vector :
         normalised_u = Euclidian_Space_Vector.get_copy_vector( U)
         normalised_u.normalise()
         P = normalised_u.coordinates*normalised_u.coordinates.transpose()
-        x,y,z = [int(k) for k in nditer(normalised_u.coordinates)]
+        x,y,z = [float(k) for k in nditer(normalised_u.coordinates)]
         Q = matrix([[0,-z,y],[z,0,-x],[-y,x,0]])
         return P +  cos(theta)*(identity(3)-P) + sin(theta)*Q 
         
