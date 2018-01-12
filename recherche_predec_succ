@@ -1,6 +1,6 @@
 def predec(M,k):
     if k == 0 :
-        return M[k]
+        return 'no'
     else:
         dick = 0
         i = k
@@ -14,13 +14,13 @@ def predec(M,k):
 
             print(i,M[i],dick)
         if i == -1 :
-            return M[k]
+            return 'no'
         return M[i]
             
             
 def succ(M,k):
     if k == len(M)-1 :
-        return M[k]
+        return 'no'
     else:
         dick = 0
         i = k
@@ -34,6 +34,6 @@ def succ(M,k):
 
             print(i,M[i],dick)
         if i == len(M) :
-            return M[k]
+            return 'no'
         return M[i]
             
