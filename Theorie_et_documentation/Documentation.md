@@ -20,6 +20,8 @@ Modélisation de fruits http://liris.cnrs.fr/~egfr/BestPapers/Troisieme2014_Bohl
 
 l système stochastique en 3d https://www.csee.umbc.edu/~ebert/693/TLin/node18.html
 
+(1,1) L-syst context sensitive : https://www.cise.ufl.edu/~fishwick/cap4800/class_notes/Lecture%2034%20(Lindenmeyer%20(L)%20Systems).pdf 
+
 
 
 
