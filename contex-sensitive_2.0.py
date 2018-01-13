@@ -17,24 +17,28 @@ def L_system ( graine, regle_evolution, profondeur):
         
         
 def regle_context(M,k):
+    
+        p,s = predec(M,k,1), succ(M,k)
+        
         if M[k] == "0":
-            if predec(M,k) == "0" and succ(M,k) == "0":
+            
+            if p == "0" and s == "0":
                 return "0" 
-            elif predec(M,k) == "1" and succ(M,k) == "0":
+            elif p == "1" and s == "0":
                 return "0"
-            elif predec(M,k) == "0" and succ(M,k) == "1":
+            elif p == "0" and s == "1":
                 return "1[-F1F1]"
-            elif predec(M,k) == "1" and succ(M,k) == "1":
+            elif p == "1" and s == "1":
                 return "1F1"
             else: return "0"
         elif M[k] == "1":
-            if predec(M,k) == "0" and succ(M,k) == "0":
+            if p == "0" and s == "0":
                 return "1" 
-            elif predec(M,k) == "0" and succ(M,k) == "1":
+            elif p == "0" and s == "1":
                 return "1" 
-            elif predec(M,k) == "1" and succ(M,k) == "0":
+            elif p == "1" and s == "0":
                 return "1" 
-            elif predec(M,k) == "1" and succ(M,k) == "1":
+            elif p == "1" and s == "1":
                 return "0"
             else: return "1"
         elif M[k] == "+":
@@ -44,24 +48,36 @@ def regle_context(M,k):
         else: return M[k]
 
 
-def predec(M,k):
+def predec(M,k,l):
+    mot = ''
+    i = k
+    for _ in range(l):
+        p = predec_aux(M,i)
+        print(i,mot,p)
+        if p == 'no':
+            return 'no'
+        mot += M[p]
+        i = p
+    return mot[::-1]
+
+def predec_aux(M,k):
     if k == 0 :
         return 'no'
     else:
-        dick = 0
+        dyck = 0
         i = k -1
         
-        while (M[i] !="0" and M[i] != "1") or  dick != 0 :
+        while (M[i] !="0" and M[i] != "1") or  dyck != 0 :
             if M[i] == ']' :
-                dick += 1
+                dyck += 1
             elif M[i] == '[' :
-                dick -= 1
+                dyck -= 1
             i-=1
             if i == -1 :
                 return 'no'
         if i == -1 :
             return 'no'
-        return M[i]
+        return i
             
             
 def succ(M,k):
