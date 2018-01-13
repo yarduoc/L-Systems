@@ -51,7 +51,7 @@ def predec(M,k):
         dick = 0
         i = k -1
         
-        while (M[i] !="0" and M[i] != "1") or  dick > 0 :
+        while (M[i] !="0" and M[i] != "1") or  dick != 0 :
             if M[i] == ']' :
                 dick += 1
             elif M[i] == '[' :
@@ -71,7 +71,7 @@ def succ(M,k):
         dick = 0
         i = k + 1
         
-        while (M[i] !="0" and M[i] != "1") or dick < 0 :
+        while (M[i] !="0" and M[i] != "1") or dick != 0 :
             i += 1
             if i == len(M):
                 return "no"
