@@ -1,0 +1,6 @@
+A = {F;G}
+constantes = {+;-}
+graine = F-G-G
+règles = { F -> F-G+F+G-F
+	   G -> GG}
+angle = 120°
