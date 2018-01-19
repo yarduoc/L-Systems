@@ -25,7 +25,8 @@ l système stochastique en 3d https://www.csee.umbc.edu/~ebert/693/TLin/node18.h
 (1,1) L-syst context sensitive : https://www.cise.ufl.edu/~fishwick/cap4800/class_notes/Lecture%2034%20(Lindenmeyer%20(L)%20Systems).pdf 
 
 
-Pourquoi étudier la végétation : https://e-cours.univ-paris1.fr/modules/uved/envcal/html/vegetation/vegetation/besoin.html
+Pourquoi étudier la végétation : - https://e-cours.univ-paris1.fr/modules/uved/envcal/html/vegetation/vegetation/besoin.html
+                                 - https://www.universite-paris-saclay.fr/en/node/8507
 
 
 CONTACTS :
