@@ -1,0 +1,49 @@
+1.
+Auteur : Aristid Lyndermayer, Przemyslaw Prusinkiewiczy
+Titre : The algorithmic beauty of plants 
+Url : http://algorithmicbotany.org/papers/abop/abop.pdf
+
+2.
+Auteur : Rawin Viruchpintu et Noppadon Khiripet
+Titre : Real-time 3D Plant Structure Modeling by L-System With Actual Measurement Parameters
+Url : http://www.bioquest.org/products/files/13157_Real-time%203D%20Plant%20Structure%20Modeling%20by%20L-System.pdf
+
+3.
+Auteur : Peitgen, Jurgens et Saupe
+Titre : Chaos and Fractals
+ref : p 400  1992 Springer-Verlag
+
+4.
+Auteur : Knut Arild Erstad
+Titre : L-systems, Twining Plants, Lisp
+Url : http://www.vcn.bc.ca/~griffink/lisp_lsystems.pdf
+
+5.
+Auteur : Przemyslaw Prusinkiewiczy, Mark Hammely, Jim Hananz, and Radomir Mech
+Titre : L-SYSTEMS:FROM THE THEORY TO VISUAL MODELS OF PLANTS
+Url : http://algorithmicbotany.org/papers/l-sys.csiro96.pdf
+
+6. 3D improvement
+Auteur : Martin Fuhrer
+Titre : Hairs, Textures, and Shades: Improving the Realism of Plant ModelsGenerated with L-Systems
+Url : http://algorithmicbotany.org/papers/fuhrer.th2005.pdf
+
+7.
+Auteur : Vishal Kochhar
+Titre : Application of implicit methods to the interactive modeling of trees
+Url : http://algorithmicbotany.org/papers/kochhar.th2010.pdf
+
+8. LES FOSSILES
+Auteur : Mark Koleszar
+Titre : Modelling the Plants and Ecosystemof the Rhynie Cher
+Url :http://algorithmicbotany.org/papers/koleszar.thesis2015.pdf
+
+9. pdf divin pour expliquer les l syst (chap 3)
+Auteur : Thomas Burt
+Titre : Interactive Evolutionary Computation byDuplication and Diversification of L-Systems
+Url : http://algorithmicbotany.org/papers/tburt.th2013.pdf
+
+10.
+Auteur : Julia Taylor-Hell
+Titre : Biomechanics in Botanical Trees
+Url : http://algorithmicbotany.org/papers/juliath.th2005.pdf
