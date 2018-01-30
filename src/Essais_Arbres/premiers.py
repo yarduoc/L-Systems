@@ -124,3 +124,47 @@ def affichage4(mot):
     turtle.update()
 
 affichage4(L_system( "X", regle4,8))
+
+## Stochastique
+
+from random import *
+
+def regle_sto(f):
+    a = random()
+    if f=="F" :
+        if a < 1/3:
+            return "F[+F]F[-F]F"
+        elif a < 2/3:
+            return "F[+F]F"
+        else:
+            return "F[-F]F"
+    else :
+        return f
+
+def affichage_sto(mot):
+    turtle.resetscreen()
+    turtle.speed("fastest")
+    turtle.left(90)
+    turtle.penup()
+    turtle.goto(0,-300)
+    turtle.pendown()
+    turtle.tracer(0, 0)
+    pos=[]
+    for k in mot:
+        if k=="F":
+            turtle.forward(2)
+        elif k=="-":
+            turtle.left(25.7)
+        elif k=="+":
+            turtle.right(25.7)
+        elif k=="[":
+            pos.append( (turtle.position(),turtle.heading()))
+        elif k=="]":
+            turtle.penup()
+            x=pos.pop()
+            turtle.goto(x[0])
+            turtle.setheading(x[1])
+            turtle.pendown()
+    turtle.update()
+
+affichage_sto(L_system( "F", regle_sto,6))
