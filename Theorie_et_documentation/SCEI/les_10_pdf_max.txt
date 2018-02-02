@@ -35,8 +35,8 @@ Url : http://algorithmicbotany.org/papers/kochhar.th2010.pdf
 
 8. LES FOSSILES
 Auteur : Mark Koleszar
-Titre : Modelling the Plants and Ecosystemof the Rhynie Cher
-Url :http://algorithmicbotany.org/papers/koleszar.thesis2015.pdf
+Titre : Modelling the Plants and Ecosystem of the Rhynie Cher
+Url : https://prism.ucalgary.ca/handle/11023/2588
 
 9. pdf divin pour expliquer les l syst (chap 3)
 Auteur : Thomas Burt
