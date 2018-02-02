@@ -9,9 +9,9 @@ Titre : Real-time 3D Plant Structure Modeling by L-System With Actual Measuremen
 Url : http://www.bioquest.org/products/files/13157_Real-time%203D%20Plant%20Structure%20Modeling%20by%20L-System.pdf
 
 3.
-Auteur : Peitgen, Jurgens et Saupe
-Titre : Chaos and Fractals
-ref : p 400  1992 Springer-Verlag
+Auteur : Adam Runions, Brendan Lane, and Przemyslaw Prusinkiewicz
+Titre : Modeling Trees with a Space Colonization Algorithm
+ref :http://algorithmicbotany.org/papers/colonization.egwnp2007.large.pdf
 
 4.
 Auteur : Knut Arild Erstad
