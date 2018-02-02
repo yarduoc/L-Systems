@@ -21,7 +21,7 @@ Url : http://www.vcn.bc.ca/~griffink/lisp_lsystems.pdf
 5.
 Auteur : Przemyslaw Prusinkiewiczy, Mark Hammely, Jim Hananz, and Radomir Mech
 Titre : L-SYSTEMS:FROM THE THEORY TO VISUAL MODELS OF PLANTS
-Url : http://algorithmicbotany.org/papers/l-sys.csiro96.pdf
+Url : http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.22.6081
 
 6. 3D improvement
 Auteur : Martin Fuhrer
