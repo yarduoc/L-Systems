@@ -29,9 +29,9 @@ Titre : Hairs, Textures, and Shades: Improving the Realism of Plant ModelsGenera
 Url : http://algorithmicbotany.org/papers/fuhrer.th2005.pdf
 
 7.
-Auteur : Vishal Kochhar
-Titre : Application of implicit methods to the interactive modeling of trees
-Url : http://algorithmicbotany.org/papers/kochhar.th2010.pdf
+Auteur : 
+Titre : 
+Url :
 
 8. LES FOSSILES
 Auteur : Mark Koleszar
