@@ -41,7 +41,7 @@ Url : https://prism.ucalgary.ca/handle/11023/2588
 9. pdf divin pour expliquer les l syst (chap 3)
 Auteur : Thomas Burt
 Titre : Interactive Evolutionary Computation byDuplication and Diversification of L-Systems
-Url : http://algorithmicbotany.org/papers/tburt.th2013.pdf
+Url : https://prism.ucalgary.ca/handle/11023/820
 
 10.
 Auteur : Julia Taylor-Hell
