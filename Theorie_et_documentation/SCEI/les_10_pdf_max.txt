@@ -46,4 +46,4 @@ Url : https://prism.ucalgary.ca/handle/11023/820
 10.
 Auteur : Julia Taylor-Hell
 Titre : Biomechanics in Botanical Trees
-Url : http://algorithmicbotany.org/papers/juliath.th2005.pdf
+Url : http://pages.cpsc.ucalgary.ca/~brosz/theses/Master's%20Thesis%20-%202005%20-%20Julia%20Taylor-Hell%20-%20Biomechanics%20in%20Botanical%20Trees.pdf
