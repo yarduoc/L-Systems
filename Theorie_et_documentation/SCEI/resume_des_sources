@@ -10,7 +10,11 @@
 -	Inconvénient : pas possible d’avoir une structure de branchage qui redescend vraiment
 
 
+4. Knuth
 
+La possibilité de prédire l’évolution d’une plante en fonctions de paramètres du milieu est un grand intérêt des L-system.
+On peut en effet prendre en compte, lors de la croissance d’une plante, des conditions du milieu comme la luminosité, les obstacles ou encore le vent, pour plus de réalisme, à l’aide de variantes des L-systems, les environmentally L-systems[4].
+Il est alors possible de décrire les interactions entre la plante et son milieu pour étudier sa croissance.
 
 6. 3D improvement
 	Auteur : Martin Fuhrer
