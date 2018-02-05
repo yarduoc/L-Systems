@@ -28,10 +28,10 @@ Auteur : Martin Fuhrer
 Titre : Hairs, Textures, and Shades: Improving the Realism of Plant ModelsGenerated with L-Systems
 Url : http://algorithmicbotany.org/papers/fuhrer.th2005.pdf
 
-7.
-Auteur : 
-Titre : 
-Url :
+7. Chaos & fractals
+Auteur : Peitgen, Jurgens et Saupe
+Titre : Chaos and Fractals
+ref : p 357  1992 Springer-Verlag
 
 8. LES FOSSILES
 Auteur : Mark Koleszar
