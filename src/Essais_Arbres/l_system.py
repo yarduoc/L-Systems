@@ -56,8 +56,11 @@ class Affichage:
     
     
     def afficher(self,n):
-        t = turlte3D
         
-        mot = self.L_sysem.renvoie_mot(n)
+        
+        mot = self.L_system.renvoyer_mot(n)
         self.regle_affichage(mot)
+        
+        
 
+        
