@@ -1,4 +1,4 @@
-## Turtle 3D by Yarduoc
+## Turtle 3D by Yarduoc and tibo and issa
 
 from numpy import *
 
