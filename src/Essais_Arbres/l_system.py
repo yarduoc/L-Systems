@@ -17,9 +17,9 @@ class L_systeme :
     
     def etendre_langage(self):
         mot = self.langage[-1]
-        sortie = ""
+        sortie = []
         for lettre in mot :
-            sortie += self.regle(lettre)
+            sortie += (self.regle(lettre))
             
         self.langage.append(sortie)
         
