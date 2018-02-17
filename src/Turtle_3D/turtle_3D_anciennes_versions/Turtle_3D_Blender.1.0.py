@@ -1,5 +1,5 @@
 ## Turtle 3D by Yarduoc
-
+#import bpy
 from numpy import *
 
 class Euclidian_Space_Vector :
@@ -282,13 +282,14 @@ class turtle3D :
         theta = arccos(dz/dist)
         bpy.context.object.rotation_euler[1] = theta
         bpy.context.object.rotation_euler[2] = phi
-    
-    
-    def get_data_size( data_list):
+
+
+    def get_data_size(self,data_list):
         (xmin,ymin,zmin) = data_list[0][0]
         (xmax,ymax,zmax) = data_list[0][0]
         for data in data_list:
             ((x1,y1,z1),(x2,y2,z2),size) =  data
+
             xmin = min( xmin, min( x1, x2))
             xmax = max( xmax, max( x1, x2))
             ymin = min( ymin, min( y1, y2))
@@ -297,8 +298,8 @@ class turtle3D :
             zmax = max( zmax, max( z1, z2))
         return max( abs( xmax-xmin), abs( ymax-ymin), abs( zmax-zmin))
     
-    def resize_data( data_list, dimension):
-        coefficient = dimension / turtle3D.get_data_size( data_list)
+    def resize_data(data_list, dimension):
+        coefficient = dimension / t.get_data_size( data_list)
         for k in range ( len( data_list)) :
             ((x1,y1,z1),(x2,y2,z2), size) =  data_list[k]
             x1 *= coefficient
@@ -317,6 +318,7 @@ class turtle3D :
         for data in data_list:
             (p1,p2,size) = data
             turtle3D.draw_cylinder(p1,p2,size)
+        
         
         
 
