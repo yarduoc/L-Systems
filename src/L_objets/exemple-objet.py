@@ -1,6 +1,10 @@
-## Turtle 3D by Yarduoc and tibo and issa
+import bpy
+##
+from numpy import arctan2
+from numpy import arccos
+from numpy import sqrt
+from math import exp
 
-from numpy import *
 
 class Euclidian_Space_Vector :
     
@@ -282,8 +286,8 @@ class turtle3D :
         theta = arccos(dz/dist)
         bpy.context.object.rotation_euler[1] = theta
         bpy.context.object.rotation_euler[2] = phi
-    
-    
+
+
     def get_data_size( data_list):
         (xmin,ymin,zmin) = data_list[0][0]
         (xmax,ymax,zmax) = data_list[0][0]
@@ -313,28 +317,120 @@ class turtle3D :
     
     
     def blender_print ( self, dimension):
-        data_list = turtle3D.resize_data( self.stored_lines, dimension)
-        for data in data_list:
+        #data_list = turtle3D.resize_data( self.stored_lines, dimension)
+        for segment in self.stored_lines:
             (p1,p2,size) = data
             turtle3D.draw_cylinder(p1,p2,size)
         
         
-T = turtle3D()
-T.set_tuple_orientation((1,0,0))
+t = turtle3D()
+
+##
+class L_systeme :
+    
+    alphabet = []
+    regle = None
+    graine = ""
+    langage = []
+    
+    def __init__(self,regle,graine,alphabet):
+        self.regle = regle
+        self.alphabet = alphabet
+        self.graine = graine
+        self.langage.append(graine)
+        
+    def appartiens_a_alphabet(self,caractere):
+        return caractere in self.langage
+    
+    def etendre_langage(self):
+        mot = self.langage[-1]
+        sortie = []
+        for lettre in mot :
+            sortie += (self.regle(lettre))
+            
+        self.langage.append(sortie)
+        
+    def renvoyer_mot(self, n):
+        if len(self.langage) > n :
+            return self.langage[n]
+        self.etendre_langage()
+        return self.renvoyer_mot(n)
+    
+    def predec(self,M,k):
+        if k == 0:
+            return None
+        if M[k-1] in self.alphabet:
+            return k-1
+        if M[k-1] not in ["[","]"]:
+            return self.predec(mot,k-1)
+        j = k-1
+        while M[j] != "[" or M[j-1] not in self.alphabet:
+            j -= 1
+            if j == 0:
+                return None
+        if M[j-1] in self.alphabet:
+            return j-1
+        return self.predec(mot,j-1)
+    
+class Interpretation_geometrique:
+    
+    regle_affichage = None
+    L_system = None
+    
+    def __init__(self , regle_affichage , L_system):
+        self.regle_affichage = regle_affichage
+        self.L_system = L_system
+    
+    
+    def tracer(self,n):
+        
+        
+        mot = self.L_system.renvoyer_mot(n)
+        self.regle_affichage(mot)
+        
+##
 
 
+
+r1,r2,alpha1,alpha2,phi1,phi2,w0,q,e,min,n = [.75,.77,35,-35,0,0,30,.50,.40,0,10]
+
+graine = [("A",100,w0)]
+
+def regle(lettre):
+    if lettre[0] == "A"and lettre[1] >= min :
+        A,s,w = lettre
+        branche_gauche = [("["),("+",alpha1),("/",phi1),("A",s*r1,w*q*exp(e)),("]")]
+        branche_droite = [("["),("+",alpha2),("/",phi2),("A",s*r2,w*(1-q)*exp(e)),("]")]
+        return [("F",s,w)] + branche_gauche + branche_droite
+    return [lettre]
+
+
+def affichage(mot):
+    pos = []
+    for k in mot:
+        if k[0] == "F":
+            t.set_thickness(k[2])
+            t.forward(k[1])
+        elif k[0] =="[":
+            pos.append((t._turtle3D__current_position,t._turtle3D__current_orientation))
+        elif k[0] =="]":
+            x=pos.pop()
+            t.set_position(x[0])
+            t.set_orientation(x[1])
         
+        elif k[0] == "+":
+            t.rotate_relative_Z(k[1])
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        elif k[0] == "/":
+            t.rotate_relative_X(k[1])
+
+##
+
+t = turtle3D()
+
+L = L_systeme(regle,graine,["F"])
+
+A = Interpretation_geometrique(affichage,L)
+
+A.tracer(5)
+
