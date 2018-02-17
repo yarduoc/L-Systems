@@ -44,7 +44,7 @@ class L_systeme :
             return j-1
         return self.predec(mot,j-1)
     
-class Affichage:
+class Interpretation_geometrique:
     
     regle_affichage = None
     L_system = None
@@ -54,12 +54,8 @@ class Affichage:
         self.L_system = L_system
     
     
-    def afficher(self,n):
+    def tracer(self,n):
         
         
         mot = self.L_system.renvoyer_mot(n)
         self.regle_affichage(mot)
-        
-        
-
-        
