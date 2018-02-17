@@ -402,7 +402,7 @@ def regle(lettre):
 def affichage(mot):
     pos = []
     for k in mot:
-        if k[0] == mot:
+        if k[0] == "F":
             t.set_thickness(k[2])
             t.forward(k[1])
         elif k[0] =="[":
@@ -420,9 +420,10 @@ def affichage(mot):
 
 ##
 
+t = turtle3D()
 
 L = L_systeme(regle,graine,["F"])
 
 A = Affichage(affichage,L)
 
-A.afficher(1)
+A.afficher(5)
