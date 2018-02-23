@@ -1,78 +1,85 @@
-def L_system ( graine, regle_evolution, profondeur):
+class L_systeme :
     
-    mot = graine
+    alphabet = []
+    regle = None
+    graine = ""
+    langage = []
     
-    def evolution( mot, regle_evolution):
-        sortie = ""
-        for k in range(len(mot)):
-            sortie += regle_evolution(mot,k)
+    def __init__(self,regle,graine,alphabet):
+        self.regle = regle
+        self.alphabet = alphabet
+        self.graine = graine
+        self.langage.append(graine)
+        
+    def appartiens_a_alphabet(self,caractere):
+        return caractere in self.langage
+    
+    def elaguer(mot):
+        
+        def prochain_indice(mot,k):
+            compteur = 0
+            i = k
+            while i < len(mot) and compteur >= 0 :
+                if mot[i][0] == '[' :
+                    compteur += 1
+                if mot[i][0] == ']' :
+                    compteur -= 1
+                i += 1
+            return i-1
+                    
+        sortie = []
+        k = 0
+        
+        while k < len(mot):
+            print(k)
+            if mot[k][0] == '%':
+                k = prochain_indice(mot,k)
+            sortie.append(mot[k])
+            k+=1
         return sortie
         
-    for _ in range(profondeur):
-        mot = evolution( mot, regle_evolution)
+    def etendre_langage(self):
+        mot = self.langage[-1]
+        sortie = []
+        for lettre in mot :
+            sortie += (self.regle(lettre))
+            
+        self.langage.append(sortie)
+        
+    def renvoyer_mot(self, n):
+        if len(self.langage) > n :
+            return self.langage[n]
+        self.etendre_langage()
+        return self.renvoyer_mot(n)
     
-    return mot
+    def predec(self,M,k):
+        if k == 0:
+            return None
+        if M[k-1] in self.alphabet:
+            return k-1
+        if M[k-1] not in ["[","]"]:
+            return self.predec(mot,k-1)
+        j = k-1
+        while M[j] != "[" or M[j-1] not in self.alphabet:
+            j -= 1
+            if j == 0:
+                return None
+        if M[j-1] in self.alphabet:
+            return j-1
+        return self.predec(mot,j-1)
+    
+class Interpretation_geometrique:
+    
+    regle_affichage = None
+    L_system = None
+    
+    def __init__(self , regle_affichage , L_system):
+        self.regle_affichage = regle_affichage
+        self.L_system = L_system
+    
+    
+    def tracer(self,n):
         
         
-def regle_context(M,k):
-        if M[k] == "0":
-            if predec(M,k) == "0" and succ(M,k) == "0":
-                return "0" 
-            if predec(M,k) == "1" and succ(M,k) == "0":
-                return "1F1"
-            if predec(M,k) == "0" and succ(M,k) == "1":
-                return "1[-F1F1]" 
-        elif M[k] == "1":
-            if predec(M,k) == "0" and succ(M,k) == "0":
-                return "1" 
-            if predec(M,k) == "0" and succ(M,k) == "1":
-                return "1" 
-            if predec(M,k) == "1" and succ(M,k) == "0":
-                return "1" 
-            if predec(M,k) == "1" and succ(M,k) == "1":
-                return "0"
-        elif M[k] == "+":
-            return "-"
-        elif M[k] =="-":
-            return "+"
-        else: return M[k]
-
-
-def predec(M,k):
-    if k == 0 :
-        return 'no'
-    else:
-        dick = 0
-        i = k
-        
-        while (M[i] == '[' or M[i] == "F" or M[i] == ']' or dick != 0  or i==k):
-            i -= 1
-            if M[i] == ']' :
-                dick += 1
-            if M[i] == '[' :
-                dick -= 1
-
-            print(i,M[i],dick)
-        if i == -1 :
-            return 'no'
-        return M[i]
-            
-            
-def succ(M,k):
-    if k == len(M)-1 :
-        return 'no'
-    else:
-        dick = 0
-        i = k
-        
-        while (M[i] == '[' or M[i] == ']' or M[i] == "F" or dick != 0  or i==k):
-            i += 1
-            if M[i] == ']' :
-                dick += 1
-            if M[i] == '[' :
-                dick -= 1
-
-            print(i,M[i],dick)
-        if i == len(M) :
-            return 'no'
-        return M[i]
+        mot = self.L_system.renvoyer_mot(n)
+        self.regle_affichage(mot)
