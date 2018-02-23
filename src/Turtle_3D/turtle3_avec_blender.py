@@ -1,8 +1,10 @@
 ## Turtle 3D by Yarduoc
 
-#import bpy
+import bpy
 
+##
 from numpy import *
+from math import exp
 
 
 class Euclidian_Space_Vector :
@@ -157,6 +159,7 @@ class Cartesian_Axes :
     
     def get_default_axes( tuple):
         X_vect = Euclidian_Space_Vector.get_vector(tuple)
+        Y_vect = 0
         x,y,z = tuple
         if x==0 :
             Y_vect = Euclidian_Space_Vector.get_vector((1,0,0))
@@ -175,11 +178,11 @@ class Cartesian_Axes :
         return new_axes
     
     def get_copy_axes( axes):
-        new_axis = Cartesian_Axes()
-        new_axes.X_axis = Euclidian_Space_Vector.get_copy_vector(axes.X_vect)
-        new_axes.Y_axis = Euclidian_Space_Vector.get_copy_vector(axes.Y_vect)
-        new_axes.Z_axis = Euclidian_Space_Vector.get_copy_vector(axes.Z_vect)
-        return new_axis
+        new_axes = Cartesian_Axes()
+        new_axes.X_axis = Euclidian_Space_Vector.get_copy_vector(axes.X_axis)
+        new_axes.Y_axis = Euclidian_Space_Vector.get_copy_vector(axes.Y_axis)
+        new_axes.Z_axis = Euclidian_Space_Vector.get_copy_vector(axes.Z_axis)
+        return new_axes
     
     # Representation Method
     
@@ -269,6 +272,8 @@ class turtle3D :
         
     # Blender
     
+    
+       
     def draw_cylinder( p1, p2, rayon):
         x1,y1,z1 = p1[0], p1[1], p1[2]
         x2,y2,z2 = p2[0], p2[1], p2[2]
@@ -289,7 +294,7 @@ class turtle3D :
                                             location=p1)
         bpy.ops.mesh.primitive_uv_sphere_add(size=rayon,
                                             location=p2)
-     
+        
     def get_data_size( data_list):
         (xmin,ymin,zmin) = data_list[0][0]
         (xmax,ymax,zmax) = data_list[0][0]
@@ -323,13 +328,6 @@ class turtle3D :
         for data in data_list:
             (p1,p2,size) = data
             turtle3D.draw_cylinder(p1,p2,size)
-    
-T = turtle3D()
-T.set_tuple_orientation((1,0,0))
-
-
-        
-        
         
         
         
