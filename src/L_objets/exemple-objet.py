@@ -398,7 +398,7 @@ class Interpretation_geometrique:
 
 r1,r2,alpha1,alpha2,phi1,phi2,w0,q,e,min1,n = [.75,.77,35,-35,0,0,30,.50,.40,0,10]
 
-graine = [("A",100,w0)]
+graine = [["A",100,w0]]
 
 def regle(lettre):
     if lettre[0] == "A"and lettre[1] >= min1 :
