@@ -270,6 +270,42 @@ class turtle3D :
         
     # Blender
     
+        
+    def get_data_size( data_list):
+        (xmin,ymin,zmin) = data_list[0][0]
+        (xmax,ymax,zmax) = data_list[0][0]
+        for data in data_list:
+            ((x1,y1,z1),(x2,y2,z2),size) =  data
+            xmin = min( xmin, min( x1, x2))
+            xmax = max( xmax, max( x1, x2))
+            ymin = min( ymin, min( y1, y2))
+            ymax = max( ymax, max( y1, y2))
+            zmin = min( zmin, min( z1, z2))
+            zmax = max( zmax, max( z1, z2))
+        return max( abs( xmax-xmin), abs( ymax-ymin), abs( zmax-zmin))
+    
+    def resize_data( data_list, dimension):
+        coefficient = dimension / turtle3D.get_data_size( data_list)
+        for k in range ( len( data_list)) :
+            ((x1,y1,z1),(x2,y2,z2), size) =  data_list[k]
+            x1 *= coefficient
+            x2 *= coefficient
+            y1 *= coefficient
+            y2 *= coefficient
+            z1 *= coefficient
+            z2 *= coefficient
+            size *= coefficient
+            data_list[k] = [(x1,y1,z1),(x2,y2,z2), size]
+        return data_list
+    
+    
+    def blender_print ( self, dimension):
+        data_list = turtle3D.resize_data( self.stored_lines, dimension)
+        for data in data_list:
+            (p1,p2,size) = data
+            turtle3D.draw_cylinder(p1,p2,size)
+        
+    
     def draw_cylinder( p1, p2, rayon):
         x1,y1,z1 = p1[0], p1[1], p1[2]
         x2,y2,z2 = p2[0], p2[1], p2[2]
