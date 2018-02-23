@@ -14,7 +14,7 @@ class L_systeme :
     def appartiens_a_alphabet(self,caractere):
         return caractere in self.langage
     
-    def elaguer(mot):
+    def elaguer(self, mot):
         
         def prochain_indice(mot,k):
             compteur = 0
@@ -31,11 +31,12 @@ class L_systeme :
         k = 0
         
         while k < len(mot):
-            print(k)
+
             if mot[k][0] == '%':
                 k = prochain_indice(mot,k)
             sortie.append(mot[k])
             k+=1
+            
         return sortie
         
     def etendre_langage(self):
@@ -43,8 +44,8 @@ class L_systeme :
         sortie = []
         for lettre in mot :
             sortie += (self.regle(lettre))
-            
-        self.langage.append(sortie)
+        
+        self.langage.append(self.elaguer(sortie))
         
     def renvoyer_mot(self, n):
         if len(self.langage) > n :
