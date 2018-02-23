@@ -157,6 +157,7 @@ class Cartesian_Axes :
     
     def get_default_axes( tuple):
         X_vect = Euclidian_Space_Vector.get_vector(tuple)
+        Y_vect = 0
         x,y,z = tuple
         if x==0 :
             Y_vect = Euclidian_Space_Vector.get_vector((1,0,0))
@@ -175,11 +176,11 @@ class Cartesian_Axes :
         return new_axes
     
     def get_copy_axes( axes):
-        new_axis = Cartesian_Axes()
-        new_axes.X_axis = Euclidian_Space_Vector.get_copy_vector(axes.X_vect)
-        new_axes.Y_axis = Euclidian_Space_Vector.get_copy_vector(axes.Y_vect)
-        new_axes.Z_axis = Euclidian_Space_Vector.get_copy_vector(axes.Z_vect)
-        return new_axis
+        new_axes = Cartesian_Axes()
+        new_axes.X_axis = Euclidian_Space_Vector.get_copy_vector(axes.X_axis)
+        new_axes.Y_axis = Euclidian_Space_Vector.get_copy_vector(axes.Y_axis)
+        new_axes.Z_axis = Euclidian_Space_Vector.get_copy_vector(axes.Z_axis)
+        return new_axes
     
     # Representation Method
     
@@ -379,7 +380,7 @@ def affichage(mot):
             t.set_thickness(k[2])
             t.forward(k[1])
         elif k[0] =="[":
-            pos.append((t._turtle3D__current_position,t._turtle3D__current_orientation))
+            pos.append((t.get_position(),t.get_orientation()))
         elif k[0] =="]":
             x=pos.pop()
             t.set_position(x[0])
@@ -400,5 +401,3 @@ L = L_systeme(regle,graine,["F"])
 A = Interpretation_geometrique(affichage,L)
 
 A.tracer(5)
-
-t.blender_print(10)
