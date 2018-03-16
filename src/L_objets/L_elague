@@ -86,12 +86,12 @@ class L_systeme :
         return sortie
         
     def etendre_langage(self):
-        mot = self.langage[-1]
+        mot = self.elaguer(self.langage[-1])
         sortie = []
         for lettre in mot :
             sortie += (self.regle(lettre))
             
-        self.langage.append(self.elaguer(sortie))
+        self.langage.append(sortie)
         
     def renvoyer_mot(self, n):
         if len(self.langage) > n :
