@@ -403,9 +403,9 @@ graine = [["A",100,w0]]
 def regle(lettre):
     if lettre[0] == "A"and lettre[1] >= min1 :
         A,s,w = lettre
-        branche_gauche = [("["),("+",alpha1),("/",phi1),("A",s*r1,w*q*exp(e)),("]")]
-        branche_droite = [("["),("+",alpha2),("/",phi2),("A",s*r2,w*(1-q)*exp(e)),("]")]
-        return [("F",s,w)] + branche_gauche + branche_droite
+        branche_gauche = [["["],["+",alpha1],["/",phi1],["A",s*r1,w*q*exp(e)],["]"]]
+        branche_droite = [["["],["+",alpha2],["/",phi2],["A",s*r2,w*(1-q)*exp(e)],["]"]]
+        return [["F",s,w]] + branche_gauche + branche_droite
     return [lettre]
 
 
