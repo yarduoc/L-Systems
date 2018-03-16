@@ -38,6 +38,9 @@ def affichage(mot):
         
         elif k[0] == "+":
             t.rotate_relative_Z(k[1])
+            
+        elif k[0] == "-":
+            t.rotate_relative_Z(-k[1])
         
         elif k[0] == "/":
             t.rotate_relative_X(k[1])
