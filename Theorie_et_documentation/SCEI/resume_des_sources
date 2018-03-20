@@ -1,0 +1,72 @@
+3.Space Colonisation Algorithm
+	Auteur : Adam Runions, Brendan Lane, and Przemyslaw Prusinkiewicz
+	Titre : Modeling Trees with a Space Colonization Algorithm
+	ref :http://algorithmicbotany.org/papers/colonization.egwnp2007.large.pdf
+
+-	Génération d’arbres (étonemment réalistique)
+-	Algorithme de ‘colonisation de l’espace’
+-	Traite la ‘compétition pour l’espace’ comme étant le facteur principal qui détermine la structure de branchage des arbres
+-	Principe : distribution de points dans un espace clos, l’arbre pousse vers ces points en les consumant
+-	Inconvénient : pas possible d’avoir une structure de branchage qui redescend vraiment
+
+
+4. Knuth
+
+La possibilité de prédire l’évolution d’une plante en fonctions de paramètres du milieu est un grand intérêt des L-system.
+On peut en effet prendre en compte, lors de la croissance d’une plante, des conditions du milieu comme la luminosité, les obstacles ou encore le vent, pour plus de réalisme, à l’aide de variantes des L-systems, les environmentally L-systems[4].
+Il est alors possible de décrire les interactions entre la plante et son milieu pour étudier sa croissance.
+
+6. 3D improvement
+	Auteur : Martin Fuhrer
+	Titre : Hairs, Textures, and Shades: Improving the Realism of Plant ModelsGenerated with L-Systems
+	Url : http://algorithmicbotany.org/papers/fuhrer.th2005.pdf
+
+Abstract :
+-	Plantes sont souvent modélisées par des l systèmes. 
+-	Incorporer des matériaux dynamiques au l système, en plus de gérer les ombres et la transparence des feuilles et pétales.
+-	Revisiter la texture des cylindres, génération procédurale de veines, et rebords transluminescent.
+-	Méthode pour générer les poils à l’aide de l systèmes
+-	State-of-the-art plant renderings
+
+
+
+
+
+
+
+
+8. LES FOSSILES
+
+
+	Auteur : Mark Koleszar
+	Titre : Modelling the Plants and Ecosystemof the Rhynie Cher
+	Url :http://algorithmicbotany.org/papers/koleszar.thesis2015.pdf
+
+
+Abstract :
+- Modélisation d’espèces de plantes disparues grâce à des données fossiles.
+-Utilisation des fossiles bien conservés de Flore de Rhynie
+-Plantes modélisées en L-système, avec des techniques développées pour modéliser les espèces végétales existantes
+- Première modélisation dynamique de cette flore, car toutes les représentations précédentes étaient sculptures ou dessins
+- Création d’un écosystème qui simule les interactions entre les plantes et leur environnement
+
+
+9. pdf divin pour expliquer les l syst (chap 3)
+	Auteur : Thomas Burt
+	Titre : Interactive Evolutionary Computation byDuplication and Diversification of L-Systems
+	Url : https://prism.ucalgary.ca/handle/11023/820
+
+
+-	Les procédés évolutionnaires sont responsables d’une grande variété d’organismes vivants dans le monde naturel
+-	Des simulations digitales se sont inspirées de ce processus pour être utilisé pour créer divers modèles pour de l’imagerie informatique
+-	Des évolutions de l système c’est sexy car on peut faire un parallèle entre le code génétique et la production de l système
+-	Y’a déjà eu une paire d’essais, mais ici améliorées par des opérations différentes : duplication et diversification
+-	Transfo génétiques -> transformations douces de moins complexes jusqu’à de complexes phénotypes par la diversification graduelle du matériel génétique redondant
+
+10.Auteur : Julia Taylor-HellTitre : Biomechanics in Botanical TreesUrl : http://pages.cpsc.ucalgary.ca/~brosz/theses/Master's%20Thesis%20-%202005%20-%20Julia%20Taylor-Hell%20-%20Biomechanics%20in%20Botanical%20Trees.pdf
+
+
+-	Créer des modèles d’arbres réaliste avec des branches incurvées en considérant son développement dans le context de son environnement
+-	Forme finale -> gravité + tropisme
+-	Utilisation du cadre de L-système, combiné à la ‘’’simulation bioméchanique de Jirasek’’’ (rechercher ??) est étendu pour représenter correctement els arbres en entier
+-	+++++ (pas l’temsps dfinir) 

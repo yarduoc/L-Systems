@@ -1,0 +1,23 @@
+Biblio :
+
+Les structures naturelles et particulièrement celles formées par les êtres vivants font preuves d'une grande complexité qu'il est difficile de représenter dans leur exactitude à l'aide d'objets mathématiques. C'est pour cela qu'il est parfois utile de pouvoir générer des structures approchées mais toutefois réalistes à l'aide d'outils simples. Cette approche est possible deans le cas de la végétation, grâce à l'aspect recursif de la croissance des plantes.
+De nombreuses méthodes se sont déjà essayées à la représentation de la végétation. Tout d'abord, on peut étudier les Iterated Function System (IFS) [7] qui permettent une représentation précise de tout objet possédant une structure récursive. Cependant, elles restent limitées car le résultat doit être connu à l'avance, ce qui n'est pas le cas lorsqu'on plante une graine à priori.
+Une autre méthode possible est l'algorithme de colonisation de l'espace [3], algorithme qui traite la compétition pour l'espace comme étant le facteur principal qui détermine la façon dont se répartit la structure de branchage des arbres. L'algorithme consiste à distribuer des points dans un espace clos, et de faire pousser l'arbre vers ces points, en les consommant. L'inconvénient majeur est qu'il n'est pas possible d'obtenir une structure de branchage descendante. Les l-systèmes présentent l'avantage d'être simple à prendre en main et donnent des résultats plus réalistes pour peu qu'une règle de dérivation et une méthode d'interprétation soient constructibles à partir du modèle réel.
+Cette modélisation se base sur la théorie des langages. Un l-système est en effet une grammaire dont la règle de dérivation s'applique sur l'ensemble du mot, et non à des lettres particulières de ce dernier [1]. Cela revient donc à caractériser les images successives d'un morphisme itéré sur une graine. Les mots de ce langage sont interprétables géométriquement.
+Il est de plus possible d'établir un parallèle entre le phénotype de la plante modélisée et la règle de production du l-système, ce qui ouvre de nouvelles persepctives.[9]
+
+
+
+Cette structure basique est néanmoins complexifiable, pour atteindre un niveau plus élevé de réalisme. Ainsi, l'introduction d'une règle de dérivation probabiliste (L-systèmes stochastiques) permet de diversifier le résultat obtenu tout en gardant un modèle de base.[1] L'utilisation d'une grammaire contextuelle permet d'ajouter de la cohérence de croissance dans la plante générée.[1][5] En plus de ces modifications dans la gestion de la dérivation, qui est une modification propre au l-système, il est possible d'adapter l'interprétation qui est faite d'un mot généré. On peut de cette façon modéliser des conditions favorables ou défavorables à la croissance (source d'eau, de lumière, mur qui bloque le développement)[4]. La structure générée par le L-système est très satisfaisante car il suffit de rajouter des détails (ombres, génération de veine, transparence et texture réaliste sur les cylindres) pour obtenir un résultat quasi photographique.[5] L'utilisation de cet outil qu'est la structure de l-systèmes et de ses complexifications diverses permet de recréer virtuellement des végétaux, leur croissance et les interactions qu'ils ont avec leur milieu. Ainsi, un groupe de recherches a par exemple pu recréer un végétal disparu et l'écosystème dont il prenait part à partir de l'étude de ses fossiles.[8]
+
+problématique :
+
+Dans un contexte où l'environnement est au centre de nombre de préoccupations, il est important de comprendre les mécanismes qui entrent en jeu dans la croissance des plantes. Il est alors intéressant de pouvoir modéliser informatiquement les interactions du milieu influant sur la croissance.
+
+Objectifs :
+
+
+
+1. Etude théorique
+2. Iterprétation et impression 3D
+3. Création de notre propre L système
