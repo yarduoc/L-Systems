@@ -1,5 +1,39 @@
-class L_systeme :
+class Morphisme:
+    regle = None
     
+    def __init__(self,regle):
+        self.regle = regle
+        
+    def predec(self,mot,k,motif):
+        if k == 0:
+            return None
+        if M[k-1] in self.alphabet:
+            return k-1
+        if M[k-1] not in ["[","]"]:
+            return self.predec(mot,k-1)
+        j = k-1
+        while M[j] != "[" or M[j-1] not in self.alphabet:
+            j -= 1
+            if j == 0:
+                return None
+        if M[j-1] in self.alphabet:
+            return j-1
+        return self.predec(mot,j-1)
+        
+    def succ(self,mot,k,motif):
+        pass
+        
+    def appliquer(self,mot):
+        
+        sortie = []
+        for k in range(len(mot)):
+            m = self.regle(mot,k,self.predec,self.succ)
+            sortie.append(m)
+        return sortie
+        
+
+class L_systeme :
+
     alphabet = []
     regle = None
     graine = ""
@@ -16,33 +50,19 @@ class L_systeme :
     
     def etendre_langage(self):
         mot = self.langage[-1]
-        sortie = []
-        for lettre in mot :
-            sortie += (self.regle(lettre))
-            
-        self.langage.append(sortie)
+        
+        self.langage.append(regle.appliquer(mot))
         
     def renvoyer_mot(self, n):
+        
         if len(self.langage) > n :
+            
             return self.langage[n]
+            
         self.etendre_langage()
         return self.renvoyer_mot(n)
     
-    def predec(self,M,k):
-        if k == 0:
-            return None
-        if M[k-1] in self.alphabet:
-            return k-1
-        if M[k-1] not in ["[","]"]:
-            return self.predec(M,k-1)
-        j = k-1
-        while M[j] != "[" or M[j-1] not in self.alphabet:
-            j -= 1
-            if j == 0:
-                return None
-        if M[j-1] in self.alphabet:
-            return j-1
-        return self.predec(M,j-1)
+
     
 class Interpretation_geometrique:
     
@@ -59,3 +79,8 @@ class Interpretation_geometrique:
         
         mot = self.L_system.renvoyer_mot(n)
         self.regle_affichage(mot)
+        
+        
+
+        
+        
