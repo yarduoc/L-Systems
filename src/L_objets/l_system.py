@@ -34,7 +34,7 @@ class L_systeme :
         if M[k-1] in self.alphabet:
             return k-1
         if M[k-1] not in ["[","]"]:
-            return self.predec(mot,k-1)
+            return self.predec(M,k-1)
         j = k-1
         while M[j] != "[" or M[j-1] not in self.alphabet:
             j -= 1
@@ -42,7 +42,7 @@ class L_systeme :
                 return None
         if M[j-1] in self.alphabet:
             return j-1
-        return self.predec(mot,j-1)
+        return self.predec(M,j-1)
     
 class Interpretation_geometrique:
     
