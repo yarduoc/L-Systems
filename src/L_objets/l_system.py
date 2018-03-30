@@ -1,18 +1,18 @@
 """def regle(indice,mot,alphabet):
-    lettre = mot[indice]
-    if lettre == ['b'] :
+    lettre = mot[indice][0]
+    if lettre == 'b' :
         if M.est_predecesseur(mot,indice,'a'):
             return [['c'],['b']]
         if M.est_predecesseur(mot,indice,'aab'):
             return [['c'],['c'],['c']]
         return [['a'],['a'],['a']]
-    if lettre == ['a']:
+    if lettre == 'a':
         return [['a'],['b']]
-    return lettre
+    return [mot[indice]]
     
 M = Morphisme(regle,['a','b'])
 
-L = L_systeme(M,['a'],['a','b'])"""
+L = L_systeme(M,[['a',0]],['a','b'])"""
 
 
 class Morphisme:
@@ -76,7 +76,7 @@ class L_systeme :
 
     alphabet = []
     morphism = None
-    graine = ""
+    graine = None
     langage = []
     
     def __init__(self,morphism,graine,alphabet):
