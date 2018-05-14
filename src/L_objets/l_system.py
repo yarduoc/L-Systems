@@ -56,7 +56,7 @@ class Morphisme:
         
         if nouvel_indice == "Impossible" :
             return False
-        if mot[nouvel_indice] != motif[-1] :
+        if mot[nouvel_indice][0] != motif[-1] :
             return False
         return self.est_predecesseur(mot,nouvel_indice, motif[:-1:])
         
