@@ -51,16 +51,31 @@ def regle_parasite(indice, mot, alphabet):
         return [["+"],["U"]]
     if x == "D":
         return []
-    if x == L and indice+3 > len(mot) and mot[indice+3][0] == "D":
+    if x == "L" and indice+3 < len(mot) and mot[indice+3][0] == "D":
         return [["U"],["R"]]
     if x == "-" and M.est_predecesseur(mot,indice,"UR"):
         return [["-"],["U"]]
     if x == "R" and regle_14(mot,indice):
         return [["D"]]
     return [lettre]
-    
+
+
+def affichage(mot):
+    pos = []
+    for k in mot:
+        if k[0] == "F":
+            t.forward(10)
+        elif k[0] =="[":
+            pos.append((t.get_position(),t.get_orientation()))
+        elif k[0] =="]":
+            x=pos.pop()
+            t.set_position(x[0])
+            t.set_orientation(x[1])
         
-    
+        elif k[0] == "+":
+            t.rotate_relative_Z(30)
         
+        elif k[0] == "-":
+            t.rotate_relative_Z(-30) 
     
         
