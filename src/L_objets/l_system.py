@@ -19,6 +19,14 @@ L = L_systeme(M,[['a',0]],['a','b'])"""
 
 
 class Morphisme:
+    
+    """
+        Cette classe permet de créer un morphisme de mot, à partir d'une règle de dérivation de chaque lettre et d'un alphabet
+        
+        regle est une fonction
+        alphabet est une liste de caractères
+    """
+    
     regle = None
     alphabet = None
     def __init__(self,regle,alphabet):
@@ -35,6 +43,12 @@ class Morphisme:
         return "Impossible"
     
     def indice_predec(self, mot, indice):
+        """ Renvoie l'indice du predecesseur d'un lettre dans un mot
+            
+            mot est une liste de listes
+            indice est un entier (indice de la lettre à tester dans mot)
+        """
+        
         if indice == 0:
             return "Impossible"
         if mot[indice - 1][0] in self.alphabet:
@@ -49,6 +63,15 @@ class Morphisme:
             
             
     def est_predecesseur(self, mot,indice, motif):
+        
+        """ Renvoie un booléen qui vérifie si un motif donné est prédecesseur d'une lettre 
+            dans un mot
+            
+            mot est une liste de listes
+            indice est un entier (indice de la lettre à tester dans mot)
+            motif est une liste de lettres
+        """
+        
         if motif == "" :
             return True
         
