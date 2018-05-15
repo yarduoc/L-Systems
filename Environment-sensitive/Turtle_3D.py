@@ -1,8 +1,9 @@
 import os
 os.chdir("C:\\GitHub\\L-Systems\\Environment-sensitive")
 from Cartesian_Axes import *
+from Growth_Environment import *
 
-
+##
 class Turtle3D :
     
     stored_lines        = []  

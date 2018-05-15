@@ -147,6 +147,9 @@ class Euclidian_Space_Vector :
             
     def __rmul__(self, arg) :
         return  Euclidian_Space_Vector.__mul__(self, arg)
+    
+    def __neg__(self):
+        return self.get_homothetic_vector(-1)
         
     def __getitem__( self, index):
         return int(self.coordinates[index])

@@ -1,3 +1,8 @@
+import os
+os.chdir("C:\\GitHub\\L-Systems\\Environment-sensitive")
+from Physical_object import *
+from Growth_Modifier import *
+from Geometry_2 import *
 
 class Environment :
     
@@ -14,7 +19,8 @@ class Environment :
     def add_growth_modifier( self, growth_modifier):
         self.growth_modification_zones.append( growth_modifier)
         
-    def raycast( self, direction_vector):
+    def raycast( self, direction_vector, origin):
+        
         
     
     

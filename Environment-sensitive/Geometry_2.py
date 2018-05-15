@@ -1,6 +1,8 @@
 ##Import
 
 from numpy import *
+from numpy import concatenate
+from numpy.linalg import det
 
 ##Plan
 
@@ -8,8 +10,7 @@ def det_3D(v1,v2,v3,precision = 3):
     matrix = concatenate((v1.coordinates.copy(),v2.coordinates.copy(),v3.coordinates.copy()),1)
     return round(linalg.det(matrix),precision)
 
-
-class Triangular_Mesh:
+class Mesh :
     
     axes   = []
     origin = Euclidian_Space_Vector((1,1,1))
@@ -22,12 +23,30 @@ class Triangular_Mesh:
         self.axes.append(dot1-origin)
         self.axes.append(dot2-origin)
     
+
+class Triangular_Mesh (Mesh):
+    
+    def __init__(self, triple):
+        super().__init__(triple)
+    
     def is_in( self, vector):
         relative_vector = vector - self.origin
         z = Euclidian_Space_Vector.vectorial_product(axes[0],axes[1])
         vector_x = det_3D(relative_vector,axes[1],z)/det_3D(axes[0],axes[1],z)
         vector_y = det_3D(axes[0],relative_vector,z)/det_3D(axes[0],axes[1],z)
         return vector_x > 0 and vector_y > 0 and vector_x + vector_y < 1
+
+class Square_Mesh (Mesh):
+    
+    def __init__(self,triple):
+        super().__init__(triple)
+    
+    def is_in( self, vector):
+        relative_vector = vector - self.origin
+        z = Euclidian_Space_Vector.vectorial_product(axes[0],axes[1])
+        vector_x = det_3D(relative_vector,axes[1],z)/det_3D(axes[0],axes[1],z)
+        vector_y = det_3D(axes[0],relative_vector,z)/det_3D(axes[0],axes[1],z)
+        return vector_x > 0 and vector_y > 0 and vector_x <1 and vector_y < 1
 
 
 ##Droite

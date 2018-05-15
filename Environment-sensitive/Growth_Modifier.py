@@ -12,7 +12,6 @@ class Growth_Modifier_Volume :
         else :
             self.influence = Growth_Modifier_Volume.Default_Influence
     
-    def is_in
     
     def Default_Influence( vector):
         return vector
@@ -29,7 +28,7 @@ class GM_Sphere (Growth_Modifier_Volume):
     radius = 1
     
     def __init__( self, center_vector, radius, influence):
-        super(influence)
+        super().__init__(influence)
         self.center = center_vector
         self.radius = radius
     
@@ -45,7 +44,7 @@ class GM_Parallelepiped (Growth_Modifier_Volume):
     z = Euclidian_Space_Vector((0,0,1))
     
     def __init__( self, origin_vector, x_vect, y_vect, z_vect, influence):
-        super(influence)
+        super().__init__(influence)
         self.origin = origin_vector
         self.x = x_vect
         self.y = y_vect
