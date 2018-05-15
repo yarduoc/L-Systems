@@ -12,7 +12,6 @@ class Growth_Modifier_Volume :
         else :
             self.influence = Growth_Modifier_Volume.Default_Influence
     
-    
     def Default_Influence( vector):
         return vector
     def Double_Length_Influence( vector):

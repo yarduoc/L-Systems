@@ -10,15 +10,12 @@ class Euclidian_Space_Vector :
     """ 
     Allow the user to manipulate a vector in a 3-dimensional Euclidian Space 
     """
-    
-    dimension = None            # int between in [1,2,3]
     coordinates = matrix([[]])  # column vector representing coordinates
     limit_precision = 10**-15   # limit precision of coordinates (user-friendly)
     
     ## Construction of vectors
     
     def __init__( self, coordinates = (0,0,0)):
-        self.dimension = len(coordinates)
         self.coordinates = matrix([[coordinates[k]] for k in range(self.dimension)])
     
     def get_copy(self):

@@ -11,6 +11,7 @@ class Environment :
     directionnal_influences = []
     
     def __init__( self):
+        pass
         
 
     def add_physical_object( self, physical_object):
@@ -20,6 +21,18 @@ class Environment :
         self.growth_modification_zones.append( growth_modifier)
         
     def raycast( self, direction_vector, origin):
+        growth_effects = []
+        for modifier in self.growth_modification_zones :
+            if modifier.is_in(origin + direction_vector):
+                growth_effects.append(modifier)
+        physical_collisions = []
+        for physical_object in self.physical_objects :
+            physical_collisions += physical_object.hit_by_raycast( origin, direction)
+        return growth_effects,physical_collision
+        
+            
+                
+            
         
         
     

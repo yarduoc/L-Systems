@@ -1,8 +1,10 @@
 ##Import
-
+import os
+os.chdir("C:\\GitHub\\L-Systems\\Environment-sensitive")
 from numpy import *
 from numpy import concatenate
 from numpy.linalg import det
+from Euclidian_Space_Vector import *
 
 ##Plan
 
@@ -68,9 +70,10 @@ def resolution(mesh, line):
     p1,p2 = mesh.origin, line.origin
     matrix_column = (p2-p1).coordinates.copy()
     if det_3D(v1,v2,v3) == 0:
-        "Pas d'intersection"
+        None
     else:
         A = linalg.solve(matrix_system,matrix_column)
         M = matrix((0,0,0)).T
         matrix_mesh = concatenate((v1.coordinates.copy(),v2.coordinates.copy(),M),1)
-        return dot(matrix_mesh,A)+p1.coordinates.copy()
+        solution_vector = dot(matrix_mesh,A)+p1.coordinates.copy()
+        return Euclidian_Space_Vector((solution_vector.T).tolist()[0])

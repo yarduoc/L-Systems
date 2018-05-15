@@ -1,5 +1,6 @@
 import os
 os.chdir("C:\\GitHub\\L-Systems\\Environment-sensitive")
+from Euclidian_Space_Vector import *
 from Cartesian_Axes import *
 from Growth_Environment import *
 
@@ -11,17 +12,25 @@ class Turtle3D :
     line_thickness      = 1
     __current_position    = Euclidian_Space_Vector()
     __current_orientation = Cartesian_Axes()
+    environment = None
         
     def __init__( self, environment, coords = (0,0,0), orientation = (1,0,0)):
         self.stored_points = []
         self.__current_position = Euclidian_Space_Vector(coords)
         self.__current_orientation = Cartesian_Axes.get_default_axes(orientation)
+        self.environment = environment
     
     # Turtle execution methods 
     
     def forward( self, length=1):
+        environment_action = self.environment.raycast(self.__current_orientation.X_axis,self.__current_position)
+        if len(environment_action[1]) > 0:
+            return "Erreur_collision"
+        direction = self.__current_orientation.X_axis.get_homothetic_vector( length).copy()
+        for modifier in environment_action[0]:
+            direction = modifier.influence(direction)
         current_position_copy = Euclidian_Space_Vector.get_copy_vector( self.__current_position)
-        self.__current_position.translate( self.__current_orientation.X_axis.get_homothetic_vector( length))
+        self.__current_position += direction
         if self.is_down:
             self.stored_lines.append((current_position_copy.to_tuple(),self.__current_position.to_tuple(),self.line_thickness))
             
