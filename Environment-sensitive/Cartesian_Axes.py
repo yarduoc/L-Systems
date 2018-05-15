@@ -1,17 +1,17 @@
 import os
-os.chdir("C:\\Users\\alexm\\Desktop\\TIPE")
+os.chdir("C:\\GitHub\\L-Systems\\Environment-sensitive")
 from Euclidian_Space_Vector import *
 
 class Cartesian_Axes :
     
-    X_axis = Euclidian_Space_Vector(3)
-    Y_axis = Euclidian_Space_Vector(3)
-    Z_axis = Euclidian_Space_Vector(3)
+    X_axis = Euclidian_Space_Vector()
+    Y_axis = Euclidian_Space_Vector()
+    Z_axis = Euclidian_Space_Vector()
     
     def __init__( self):
-        self.X_axis = Euclidian_Space_Vector.get_vector((1,0,0))
-        self.Y_axis = Euclidian_Space_Vector.get_vector((0,1,0))
-        self.Z_axis = Euclidian_Space_Vector.get_vector((0,0,1))
+        self.X_axis = Euclidian_Space_Vector((1,0,0))
+        self.Y_axis = Euclidian_Space_Vector((0,1,0))
+        self.Z_axis = Euclidian_Space_Vector((0,0,1))
     
     # Rotation Method
         
@@ -34,15 +34,15 @@ class Cartesian_Axes :
         X_vect = vector
         x,y,z = tuple
         if x==0 :
-            Y_vect = Euclidian_Space_Vector.get_vector((1,0,0))
+            Y_vect = Euclidian_Space_Vector((1,0,0))
         elif z==0 :
-            Y_vect = Euclidian_Space_Vector.get_vector((0,1,0))
+            Y_vect = Euclidian_Space_Vector((0,1,0))
         elif z==0 :
-            Y_vect = Euclidian_Space_Vector.get_vector((0,0,1))
+            Y_vect = Euclidian_Space_Vector((0,0,1))
         else :
-            Y_vect = Euclidian_Space_Vector.get_vector((x,y,-(x**2+y**2)/z))
+            Y_vect = Euclidian_Space_Vector((x,y,-(x**2+y**2)/z))
         x2,y2,z2 = [int(k) for k in nditer(cross(X_vect.coordinates.transpose(),Y_vect.coordinates.transpose()))]
-        Z_vect = Euclidian_Space_Vector.get_vector((x2,y2,z2))
+        Z_vect = Euclidian_Space_Vector((x2,y2,z2))
         new_axes = Cartesian_Axes()
         new_axes.X_axis = X_vect
         new_axes.Y_axis = Y_vect

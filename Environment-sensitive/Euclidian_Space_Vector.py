@@ -144,6 +144,9 @@ class Euclidian_Space_Vector :
             return self.get_homothetic_vector(arg)
         elif type(arg) == Euclidian_Space_Vector :
             return Euclidian_Space_Vector.canonical_scalar_product(self,arg)
+            
+    def __rmul__(self, arg) :
+        return  Euclidian_Space_Vector.__mul__(self, arg)
         
     def __getitem__( self, index):
         return int(self.coordinates[index])

@@ -1,5 +1,5 @@
 import os
-os.chdir("C:\\Users\\alexm\\Desktop\\TIPE")
+os.chdir("C:\\GitHub\\L-Systems\\Environment-sensitive")
 from Cartesian_Axes import *
 
 
@@ -8,12 +8,12 @@ class Turtle3D :
     stored_lines        = []  
     is_down             = True      
     line_thickness      = 1
-    __current_position    = Euclidian_Space_Vector(3)
+    __current_position    = Euclidian_Space_Vector()
     __current_orientation = Cartesian_Axes()
         
     def __init__( self, environment, coords = (0,0,0), orientation = (1,0,0)):
         self.stored_points = []
-        self.__current_position = Euclidian_Space_Vector.get_vector(coords)
+        self.__current_position = Euclidian_Space_Vector(coords)
         self.__current_orientation = Cartesian_Axes.get_default_axes(orientation)
     
     # Turtle execution methods 
@@ -28,13 +28,13 @@ class Turtle3D :
         self.forward(-length)
     
     def rotate_absolute_X( self, angle):
-        self.__current_orientation.rotate_around_U(angle,Euclidian_Space_Vector.get_vector((1,0,0)))
+        self.__current_orientation.rotate_around_U(angle,Euclidian_Space_Vector((1,0,0)))
         
     def rotate_absolute_Y( self, angle):
-        self.__current_orientation.rotate_around_U(angle,Euclidian_Space_Vector.get_vector((0,1,0)))
+        self.__current_orientation.rotate_around_U(angle,Euclidian_Space_Vector((0,1,0)))
         
     def rotate_absolute_Z( self, angle):
-        self.__current_orientation.rotate_around_U(angle,Euclidian_Space_Vector.get_vector((0,0,1)))
+        self.__current_orientation.rotate_around_U(angle,Euclidian_Space_Vector((0,0,1)))
         
     def rotate_relative_X( self, angle):
         self.__current_orientation.rotate_around_U(angle,self.__current_orientation.X_axis)
@@ -47,7 +47,7 @@ class Turtle3D :
     
     def goto( self, coordinates):
         if self.is_down :
-            stored_lines.append((self.__current_position.to_tuple(),Euclidian_Space_Vector.get_vector(coordinates).to_tuple(),self.line_thickness))
+            stored_lines.append((self.__current_position.to_tuple(),Euclidian_Space_Vector(coordinates).to_tuple(),self.line_thickness))
         self.set_position( coordinates)
     
     def pen_up( self):
@@ -62,7 +62,7 @@ class Turtle3D :
     def set_orientation( self, orientation_axes):
         self.__current_orientation = orientation_axes
     def set_tuple_position( self, coordinates):
-        self.__current_position = Euclidian_Space_Vector.get_vector(coordinates)
+        self.__current_position = Euclidian_Space_Vector(coordinates)
     def set_tuple_orientation( self, axes):
         self.__current_orientation = Cartesian_Axes.get_default_axes(axes)
     def set_thickness(self, value):

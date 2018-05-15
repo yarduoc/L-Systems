@@ -1,5 +1,6 @@
 ll = 3
 lr = 5
+ld = 4
 d = 5
 w = 40
 
@@ -31,7 +32,7 @@ def regle_parasite(indice, mot, alphabet):
             if n > 0 and m == 0:
                 return [["F"],["A",n-1,d]]
             if n == 0 and m == 0:
-                return [["L"],["["],["+"],["F"],["A",ll,d],["]"],["["],["-"],["F"],["A",lr,d],["]"]]
+                return [["L"],["&"],["["],["+"],["F"],["A",ll,d],["]"],["["],["-"],["F"],["A",lr,d],["]"],["^"],["^"],["["],["F"],["A",ld,d],["]"]]
         if M.est_predecesseur(mot, indice, "U"):
             return [["D"]]
     if x == "W":

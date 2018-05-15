@@ -1,5 +1,5 @@
 import os
-os.chdir("C:\\Users\\alexm\\Desktop\\TIPE")
+os.chdir("C:\\GitHub\\L-Systems\\Environment-sensitive")
 from Euclidian_Space_Vector import *
 
 class Growth_Modifier_Volume :
@@ -11,6 +11,8 @@ class Growth_Modifier_Volume :
             self.influence = influence
         else :
             self.influence = Growth_Modifier_Volume.Default_Influence
+    
+    def is_in
     
     def Default_Influence( vector):
         return vector
