@@ -547,7 +547,7 @@ def affichage_standard( mot, angle = 5, ratio_d = 0.95, ratio_l = 8/12):
             t.set_position(position)
             t.set_orientation(orientation)
             t.set_thickness(epaisseur)
-        elif char == "F":
+        else:
             t.forward(10)
         t.set_thickness(t.line_thickness*ratio_d)
 
