@@ -16,7 +16,7 @@ class Euclidian_Space_Vector :
     ## Construction of vectors
     
     def __init__( self, coordinates = (0,0,0)):
-        self.coordinates = matrix([[coordinates[k]] for k in range(self.dimension)])
+        self.coordinates = matrix([[coordinates[k]] for k in range(3)])
     
     def get_copy(self):
         coordinates_list = self.coordinates.transpose().tolist()[0]
@@ -31,9 +31,9 @@ class Euclidian_Space_Vector :
     ## Setting coordinates in a specific coordinates system
     
     def set_coordinates_cartesian( self, coordinates):
-        if len(coordinates) != self.dimension :
+        if len(coordinates) != 3 :
             print("Parameter error, coordinates don't match dimension")
-        self.coordinates = matrix([[coordinates[k]] for k in range(self.dimension)])
+        self.coordinates = matrix([[coordinates[k]] for k in range(3)])
     def set_coordinates_spherical( self, coordinates): #WIP
         pass
     def set_coordinates_cylindrical( self, coordinates): #WIP
@@ -47,18 +47,18 @@ class Euclidian_Space_Vector :
     def homothety( self, value):
         self.coordinates = self.coordinates * value
     
-    def rotate( self, angle, axis=0):
-        if self.dimension == 2:
-            self.coordinates = Euclidian_Space_Vector.__get_rotation_matrix_2D(angle)*self.coordinates
-        elif axis == Euclidian_Space_Vector.X :
-            self.coordinates = Euclidian_Space_Vector.__get_X_rotation_matrix_3D(angle)*self.coordinates
-        elif axis == Euclidian_Space_Vector.Y :
-            self.coordinates = Euclidian_Space_Vector.__get_Y_rotation_matrix_3D(angle)*self.coordinates
-        elif axis == Euclidian_Space_Vector.Z :
-            self.coordinates = Euclidian_Space_Vector.__get_Z_rotation_matrix_3D(angle)*self.coordinates
-        else :
-            print( "Error, Invalid Axis Value")
-        Euclidian_Space_Vector.__matrix_simplification(self)
+    # def rotate( self, angle, axis=0):
+    #     if self.dimension == 2:
+    #         self.coordinates = Euclidian_Space_Vector.__get_rotation_matrix_2D(angle)*self.coordinates
+    #     elif axis == Euclidian_Space_Vector.X :
+    #         self.coordinates = Euclidian_Space_Vector.__get_X_rotation_matrix_3D(angle)*self.coordinates
+    #     elif axis == Euclidian_Space_Vector.Y :
+    #         self.coordinates = Euclidian_Space_Vector.__get_Y_rotation_matrix_3D(angle)*self.coordinates
+    #     elif axis == Euclidian_Space_Vector.Z :
+    #         self.coordinates = Euclidian_Space_Vector.__get_Z_rotation_matrix_3D(angle)*self.coordinates
+    #     else :
+    #         print( "Error, Invalid Axis Value")
+    #     Euclidian_Space_Vector.__matrix_simplification(self)
         
     def rotate_around_U( self, angle, U):
         self.coordinates = Euclidian_Space_Vector.__get_U_rotation_matrix_3D( angle, U)*self.coordinates

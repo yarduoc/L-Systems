@@ -1,8 +1,39 @@
-
+import os
+os.chdir("C:\\GitHub\\L-Systems\\Environment-sensitive")
+from Euclidian_Space_Vector import *
 from stl import mesh
 from mpl_toolkits import mplot3d
 from matplotlib import pyplot
 test = "C:\\GitHub\\L-Systems\\Environment-sensitive\\ceci_nest_pas_un_cube.stl"
+
+
+class Mesh :
+    
+    axes   = []
+    origin = Euclidian_Space_Vector((1,1,1))
+    
+    def __init__( self , triple):
+        origin = Euclidian_Space_Vector(triple[0])
+        dot1 = Euclidian_Space_Vector(triple[1])
+        dot2 = Euclidian_Space_Vector(triple[2])
+        self.origin = origin
+        self.axes.append(dot1-origin)
+        self.axes.append(dot2-origin)
+    
+
+class Triangular_Mesh (Mesh):
+    
+    def __init__(self, triple):
+        super().__init__(triple)
+    
+    def is_in( self, vector):
+        relative_vector = vector - self.origin
+        z = Euclidian_Space_Vector.vectorial_product(axes[0],axes[1])
+        vector_x = det_3D(relative_vector,axes[1],z)/det_3D(axes[0],axes[1],z)
+        vector_y = det_3D(axes[0],relative_vector,z)/det_3D(axes[0],axes[1],z)
+        return vector_x > 0 and vector_y > 0 and vector_x + vector_y < 1
+
+
 
 class Physical_Volume :
     
@@ -12,8 +43,10 @@ class Physical_Volume :
     def __init__( self, stl_path):
         self.mesh_3D = mesh.Mesh.from_file(stl_path)
         for coords_array in self.mesh_3D.points :
-            triple = (coords_array[:2],coords_array[3:5],coords_array[6:8])
-            self.list_of_meshes.append(Triangular_Mesh(triple))
+            coords_array = coords_array.tolist()
+            triple = (coords_array[:3],coords_array[3:6],coords_array[6:9])
+            m = Triangular_Mesh(triple)
+            self.list_of_meshes.append(m)
 
     def hit_by_raycast( origin, direction):
         faces_hit = []

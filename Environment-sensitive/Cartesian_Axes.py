@@ -31,8 +31,8 @@ class Cartesian_Axes :
     # Absolute Methods
     
     def get_default_axes( vector):
-        X_vect = vector
-        x,y,z = tuple
+        X_vect = Euclidian_Space_Vector(vector)
+        x,y,z = vector
         if x==0 :
             Y_vect = Euclidian_Space_Vector((1,0,0))
         elif z==0 :
