@@ -42,6 +42,17 @@ class Morphisme:
                 compteur_dyck += (-1)**(mot[k][0] == "]")
         return "Impossible"
     
+    def skip_dyck_croissant(self,mot,indice):
+        compteur_dyck = 1
+        for k in range(indice+1,len(mot)):
+            
+            if mot[k][0] == "[" or mot[k][0] == "]":
+                compteur_dyck += (-1)**(mot[k][0] == "]")
+            if compteur_dyck == 0:
+                return k+1
+                
+    return "Impossible"
+    
     def indice_predec(self, mot, indice):
         """ Renvoie l'indice du predecesseur d'un lettre dans un mot
             
