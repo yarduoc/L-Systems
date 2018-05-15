@@ -98,7 +98,7 @@ def regle_basipete(indice,mot, alphabet):
             if mot[p][0] == 'I' :
                 [bl,ml,vl,cl] = mot[p][1::]
                 if ml == 1 and b == 1 :
-                    return [['I',b,ml,vl - vl*(1-lbd)*(c/(cl-c)),c]] #p3
+                    return [['I',b,ml,vl - vl*(1-lbd)*((cl-c)/c),c]] #p3
                     
                 if ml == 1 and b == 2 :
                     return [['I',b,ml,vl*(1-lbd)*(c/(cl-c)),c]] #p4
