@@ -522,7 +522,6 @@ class Interpretation_geometrique:
 4
     
 def affichage_standard( mot, angle = 5, ratio_d = 0.95, ratio_l = 8/12):
-    t = turtle3D((0,0,0),(0,0,1))
     mem = []
     i = 0
     while i < len(mot):
