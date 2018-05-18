@@ -27,7 +27,7 @@ class Environment :
                 growth_effects.append(modifier)
         physical_collisions = []
         for physical_object in self.physical_objects :
-            physical_collisions += physical_object.hit_by_raycast( origin, direction)
+            physical_collisions += physical_object.hit_by_raycast( origin, direction_vector)
         return growth_effects,physical_collision
         
             

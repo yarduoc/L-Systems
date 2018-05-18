@@ -1,3 +1,6 @@
+""" 
+Allow the user to manipulate more easily vectors in a 3-Dimension Euclidian Space
+"""
 from numpy import array
 from numpy import matrix
 from numpy import nditer
@@ -6,12 +9,15 @@ from numpy import cross
 from math import sqrt
 
 class Euclidian_Space_Vector :
-    
     """ 
-    Allow the user to manipulate a vector in a 3-dimensional Euclidian Space 
+    
+    Euclidian_Space_Vector( coordinates = (0,0,0))
+    
+    Returns a vector from an iterable of size at least 3, representing the 3 coordinates of the vector.
+
     """
     coordinates = matrix([[]])  # column vector representing coordinates
-    limit_precision = 10**-15   # limit precision of coordinates (user-friendly)
+    limit_precision = 10**-15   # limit precision of coordinates (for printing)
     
     ## Construction of vectors
     
