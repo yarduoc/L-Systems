@@ -6,6 +6,9 @@ from numpy import matrix
 from numpy import nditer
 from numpy import radians
 from numpy import cross
+from numpy import cos
+from numpy import sin
+from numpy import identity
 from math import sqrt
 
 class Euclidian_Space_Vector :

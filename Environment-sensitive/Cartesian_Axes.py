@@ -21,11 +21,11 @@ class Cartesian_Axes :
         self.Z_axis.rotate_around_U( angle, U)
     
     def copy( self):
-        new_axis = Cartesian_Axes()
-        new_axes.X_axis = Euclidian_Space_Vector.get_copy_vector(self.X_vect)
-        new_axes.Y_axis = Euclidian_Space_Vector.get_copy_vector(self.Y_vect)
-        new_axes.Z_axis = Euclidian_Space_Vector.get_copy_vector(self.Z_vect)
-        return new_axis
+        new_axes = Cartesian_Axes()
+        new_axes.X_axis = Euclidian_Space_Vector.get_copy(self.X_axis)
+        new_axes.Y_axis = Euclidian_Space_Vector.get_copy(self.Y_axis)
+        new_axes.Z_axis = Euclidian_Space_Vector.get_copy(self.Z_axis)
+        return new_axes
         
         
     # Absolute Methods

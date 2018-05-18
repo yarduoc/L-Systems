@@ -23,16 +23,16 @@ class Turtle3D :
     # Turtle execution methods 
     
     def forward( self, length=1):
-        environment_action = self.environment.raycast(self.__current_orientation.X_axis,self.__current_position)
+        environment_action = self.environment.raycast(3*self.__current_orientation.X_axis,self.__current_position)
         if len(environment_action[1]) > 0:
             return "Erreur_collision"
-        direction = self.__current_orientation.X_axis.get_homothetic_vector( length).copy()
+        direction = self.__current_orientation.X_axis.get_homothetic_vector( length).get_copy()
         for modifier in environment_action[0]:
             direction = modifier.influence(direction)
-        current_position_copy = Euclidian_Space_Vector.get_copy_vector( self.__current_position)
+        current_position_copy = Euclidian_Space_Vector.get_copy( self.__current_position)
         self.__current_position += direction
         if self.is_down:
-            self.stored_lines.append((current_position_copy.to_tuple(),self.__current_position.to_tuple(),self.line_thickness))
+            self.stored_lines.append((current_position_copy.get_tuple_representation(),self.__current_position.get_tuple_representation(),self.line_thickness))
             
     def backward( self, length=1):
         self.forward(-length)
@@ -81,10 +81,10 @@ class Turtle3D :
     # Getters that returns copies of attributes
     
     def get_position( self):
-        return Euclidian_Space_Vector.get_copy_vector( self.__current_position)
+        return Euclidian_Space_Vector.get_copy( self.__current_position)
         
     def get_orientation( self):
-        return Cartesian_Axes.get_copy_axes( self.__current_orientation)
+        return Cartesian_Axes.copy( self.__current_orientation)
         
     # Blender
     
