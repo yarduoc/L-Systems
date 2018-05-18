@@ -47,8 +47,9 @@ class Physical_Volume :
             triple = (coords_array[:3],coords_array[3:6],coords_array[6:9])
             m = Triangular_Mesh(triple)
             self.list_of_meshes.append(m)
+            
 
-    def hit_by_raycast( origin, direction):
+    def hit_by_raycast( self, origin, direction):
         faces_hit = []
         for triangle in self.list_of_meshes :
             intersection = resolution(triangle, Line( direction, origin))
