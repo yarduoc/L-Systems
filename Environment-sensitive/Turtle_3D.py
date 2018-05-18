@@ -104,7 +104,12 @@ class Turtle3D :
         theta = arccos(dz/dist)
         bpy.context.object.rotation_euler[1] = theta
         bpy.context.object.rotation_euler[2] = phi
-    
+        
+        bpy.ops.mesh.primitive_uv_sphere_add(size=rayon,
+                                            location=p1)
+        bpy.ops.mesh.primitive_uv_sphere_add(size=rayon,
+                                            location=p2)
+        
     
     def get_data_size( data_list):
         (xmin,ymin,zmin) = data_list[0][0]
