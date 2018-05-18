@@ -585,4 +585,4 @@ M = Morphisme(regle_evolution_3d,["F","M","N","O","P","Y","Z"])
 L = L_systeme(M,["F"],["F","M","N","O","P","Y","Z"])
 A = Interpretation_geometrique(affichage_standard,L)
 
-A.tracer(1)
+A.tracer(3)
