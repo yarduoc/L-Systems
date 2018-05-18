@@ -1,5 +1,5 @@
 ## Turtle 3D by Yarduoc
-#◘import bpy
+#import bpy
 from numpy import *
 
 class Euclidian_Space_Vector :
@@ -524,8 +524,9 @@ class Interpretation_geometrique:
 def affichage_standard( mot, angle = 5, ratio_d = 0.95, ratio_l = 8/12):
     t = turtle3D((0,0,0),(0,0,1))
     mem = []
-    for lettre in mot :
-        char = lettre[0]
+    i = 0
+    while i < len(mot):
+        char = mot[i][0]
         if char == "+":
             t.rotate_relative_Z(angle)
         elif char == "-":
@@ -548,8 +549,13 @@ def affichage_standard( mot, angle = 5, ratio_d = 0.95, ratio_l = 8/12):
             t.set_orientation(orientation)
             t.set_thickness(epaisseur)
         else:
-            t.forward(10)
+            if t.forward(10) == "Erreur collision":
+                if i < len(mot) - 1 and mot[i+1][0] == "[":
+                    i = A.L_system.morphism.skip_dyck_croissant(mot,i+1) - 1
+            else:
+                t.forward(10)
         t.set_thickness(t.line_thickness*ratio_d)
+        i += 1
 
     #t.blender_print(5)
         
