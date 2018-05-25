@@ -5,4 +5,4 @@ for ligne in list:
     fichier.write(str(ligne)+','+'\n')
 
 fichier.write(']'+'\n')
-#fichier.close()
+fichier.close()
