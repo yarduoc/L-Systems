@@ -519,7 +519,23 @@ class Interpretation_geometrique:
         self.regle_affichage(mot)
 ##
 
-4
+def passer_branche(mot,i):
+    j = i
+    n = len(mot)-1
+    est_sur_branche_principale = True
+    compteur_dyck = 0
+    while est_sur_branche_principale or compteur_dyck != 0 :
+        if mot[i][0] == '[' :
+            
+            compteur_dyck += 1
+        if mot[i][0] == ']' :
+            compteur_dyck -= 1
+        
+        if compteur_dyck != 0 :
+            est_sur_branche_principale = False
+        
+        i += 1
+    return i
     
 def affichage_standard( mot, angle = 5, ratio_d = 0.95, ratio_l = 8/12):
     mem = []
@@ -550,7 +566,8 @@ def affichage_standard( mot, angle = 5, ratio_d = 0.95, ratio_l = 8/12):
         else:
             if t.forward(10) == "Erreur collision":
                 if i < len(mot) - 1 and mot[i+1][0] == "[":
-                    i = A.L_system.morphism.skip_dyck_croissant(mot,i+1) - 1
+                    
+                    i = passer_branche(mot,i)
             else:
                 t.forward(10)
         t.set_thickness(t.line_thickness*ratio_d)
