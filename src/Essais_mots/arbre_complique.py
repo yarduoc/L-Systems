@@ -275,7 +275,7 @@ def regle_evolution_3d(indice, mot,  alphabet = ["F","M","N","O","P","Y","Z"]):
     elif k == "Z":
         return [["Z"],["Z"]]
     else :
-        return [k]
+        return [mot[indice]]
 
 M = Morphisme(regle_evolution_3d,["F","M","N","O","P","Y","Z"])
 L = L_systeme(M,["F"],["F","M","N","O","P","Y","Z"])
