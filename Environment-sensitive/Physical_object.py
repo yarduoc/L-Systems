@@ -1,6 +1,7 @@
 import os
 os.chdir("C:\\GitHub\\L-Systems\\Environment-sensitive")
 from Euclidian_Space_Vector import *
+from Geometry_2 import *
 from stl import mesh
 from mpl_toolkits import mplot3d
 from matplotlib import pyplot
@@ -17,6 +18,7 @@ class Mesh :
         dot1 = Euclidian_Space_Vector(triple[1])
         dot2 = Euclidian_Space_Vector(triple[2])
         self.origin = origin
+        self.axes = []
         self.axes.append(dot1-origin)
         self.axes.append(dot2-origin)
     
@@ -28,10 +30,10 @@ class Triangular_Mesh (Mesh):
     
     def is_in( self, vector):
         relative_vector = vector - self.origin
-        z = Euclidian_Space_Vector.vectorial_product(axes[0],axes[1])
-        vector_x = det_3D(relative_vector,axes[1],z)/det_3D(axes[0],axes[1],z)
-        vector_y = det_3D(axes[0],relative_vector,z)/det_3D(axes[0],axes[1],z)
-        return vector_x > 0 and vector_y > 0 and vector_x + vector_y < 1
+        z = Euclidian_Space_Vector.vectorial_product(self.axes[0],self.axes[1])
+        vector_x = det_3D(relative_vector,self.axes[1],z)/det_3D(self.axes[0],self.axes[1],z)
+        vector_y = det_3D(self.axes[0],relative_vector,z)/det_3D(self.axes[0],self.axes[1],z)
+        return vector_x >= 0 and vector_y >= 0 and vector_x + vector_y <= 1
 
 
 
@@ -56,7 +58,7 @@ class Physical_Volume :
             if intersection is not None :
                 distance = (origin - intersection).get_norm()
                 #To be valid, an intersection has to be in the traingle and close enough so the segment actually intersect the triangle
-                if triangle.is_in(intersection) and distance < direction.get_norm() :
+                if triangle.is_in(intersection) and distance <= direction.get_norm() :
                     faces_hit.append((distance, intersection))
         return faces_hit
 
