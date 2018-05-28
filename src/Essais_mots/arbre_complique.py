@@ -245,11 +245,11 @@ def affichage_standard( mot, angle = 5, ratio_d = 0.95, ratio_l = 8/12):
             t.set_orientation(orientation)
             t.set_thickness(epaisseur)
         else:
-            if t.forward(10) == "Erreur_collision":
+            if t.forward(1) == "Erreur_collision":
                 if i < len(mot) - 1:
                     i = passer_branche(mot,i) -2
             else:
-                t.forward(10)
+                t.forward(1)
         t.set_thickness(t.line_thickness*ratio_d)
         i += 1
 
