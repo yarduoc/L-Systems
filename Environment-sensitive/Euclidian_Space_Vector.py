@@ -56,18 +56,18 @@ class Euclidian_Space_Vector :
     def homothety( self, value):
         self.coordinates = self.coordinates * value
     
-    # def rotate( self, angle, axis=0):
-    #     if self.dimension == 2:
-    #         self.coordinates = Euclidian_Space_Vector.__get_rotation_matrix_2D(angle)*self.coordinates
-    #     elif axis == Euclidian_Space_Vector.X :
-    #         self.coordinates = Euclidian_Space_Vector.__get_X_rotation_matrix_3D(angle)*self.coordinates
-    #     elif axis == Euclidian_Space_Vector.Y :
-    #         self.coordinates = Euclidian_Space_Vector.__get_Y_rotation_matrix_3D(angle)*self.coordinates
-    #     elif axis == Euclidian_Space_Vector.Z :
-    #         self.coordinates = Euclidian_Space_Vector.__get_Z_rotation_matrix_3D(angle)*self.coordinates
-    #     else :
-    #         print( "Error, Invalid Axis Value")
-    #     Euclidian_Space_Vector.__matrix_simplification(self)
+    def rotate( self, angle, axis=0):
+        if self.dimension == 2:
+            self.coordinates = Euclidian_Space_Vector.__get_rotation_matrix_2D(angle)*self.coordinates
+        elif axis == Euclidian_Space_Vector.X :
+            self.coordinates = Euclidian_Space_Vector.__get_X_rotation_matrix_3D(angle)*self.coordinates
+        elif axis == Euclidian_Space_Vector.Y :
+            self.coordinates = Euclidian_Space_Vector.__get_Y_rotation_matrix_3D(angle)*self.coordinates
+        elif axis == Euclidian_Space_Vector.Z :
+            self.coordinates = Euclidian_Space_Vector.__get_Z_rotation_matrix_3D(angle)*self.coordinates
+        else :
+            print( "Error, Invalid Axis Value")
+        Euclidian_Space_Vector.__matrix_simplification(self)
         
     def rotate_around_U( self, angle, U):
         self.coordinates = Euclidian_Space_Vector.__get_U_rotation_matrix_3D( angle, U)*self.coordinates
@@ -118,7 +118,7 @@ class Euclidian_Space_Vector :
         normalised_u = U.get_copy()
         normalised_u.normalise()
         P = normalised_u.coordinates*normalised_u.coordinates.transpose()
-        x,y,z = [int(k) for k in nditer(normalised_u.coordinates)]
+        x,y,z = [float(k) for k in nditer(normalised_u.coordinates)]
         Q = matrix([[0,-z,y],[z,0,-x],[-y,x,0]])
         return P +  cos(theta)*(identity(3)-P) + sin(theta)*Q 
     
