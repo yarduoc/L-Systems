@@ -15,9 +15,13 @@ class Growth_Modifier_Volume :
     def Default_Influence( vector):
         return vector
     def Double_Length_Influence( vector):
-        return vector.homotethy(2)
+        copy = vector.get_copy()
+        copy.homothety(2)
+        return copy
     def Halve_Length_Influence( vector):
-        return vector.homotethy(1/2)
+        copy = vector.get_copy()
+        copy.homothety(1/2)
+        return copy
     
     
 
@@ -51,9 +55,9 @@ class GM_Parallelepiped (Growth_Modifier_Volume):
     
     def is_in( self, vector):
         new_vector = vector - self.origin
-        valid_x = (new_vector * self.x) < (self.x.get_norm())**2
-        valid_y = (new_vector * self.y) < (self.y.get_norm())**2
-        valid_z = (new_vector * self.z) < (self.z.get_norm())**2
+        valid_x = 0 <= (new_vector * self.x) <= (self.x.get_norm())**2
+        valid_y = 0 <= (new_vector * self.y) <= (self.y.get_norm())**2
+        valid_z = 0 <= (new_vector * self.z) <= (self.z.get_norm())**2
         return valid_x and valid_y and valid_z
         
         

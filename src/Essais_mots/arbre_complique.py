@@ -207,10 +207,10 @@ def passer_branche(mot,i):
     
     while i < n  and (compteur_dyck != 0) :
         
-        if mot[i] == '[' :
+        if mot[i][0] == '[' :
             
             compteur_dyck += 1
-        if mot[i] == ']' :
+        if mot[i][0] == ']' :
             compteur_dyck -= 1
         
         
@@ -219,7 +219,7 @@ def passer_branche(mot,i):
     return i
 ##
 def affichage_standard( mot, angle = 5, ratio_d = 0.95, ratio_l = 8/12):
-    mem = []
+    mem = [(t.get_position(),t.get_orientation(),t.line_thickness)]
     i = 0
     while i < len(mot):
         char = mot[i][0]
@@ -247,7 +247,6 @@ def affichage_standard( mot, angle = 5, ratio_d = 0.95, ratio_l = 8/12):
         else:
             if t.forward(10) == "Erreur_collision":
                 if i < len(mot) - 1:
-                    
                     i = passer_branche(mot,i) -2
             else:
                 t.forward(10)
@@ -275,7 +274,7 @@ def regle_evolution_3d(indice, mot,  alphabet = ["F","M","N","O","P","Y","Z"]):
     elif k == "Z":
         return [["Z"],["Z"]]
     else :
-        return [mot[indice]]
+        return [[k]]
 
 M = Morphisme(regle_evolution_3d,["F","M","N","O","P","Y","Z"])
 L = L_systeme(M,["F"],["F","M","N","O","P","Y","Z"])

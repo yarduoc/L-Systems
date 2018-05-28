@@ -29,7 +29,7 @@ class Turtle3D :
         direction = self.__current_orientation.X_axis.get_homothetic_vector( length).get_copy()
         for modifier in environment_action[0]:
             direction = modifier.influence(direction)
-        current_position_copy = Euclidian_Space_Vector.get_copy( self.__current_position)
+        current_position_copy = self.__current_position.get_copy()
         self.__current_position += direction
         if self.is_down:
             self.stored_lines.append((current_position_copy.get_tuple_representation(),self.__current_position.get_tuple_representation(),self.line_thickness))
