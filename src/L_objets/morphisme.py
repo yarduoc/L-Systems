@@ -33,7 +33,7 @@ class Morphisme:
             if compteur_dyck == 0:
                 return k+1
                 
-    return "Impossible"
+        return "Impossible"
     
     def indice_predec(self, mot, indice):
         """ Renvoie l'indice du predecesseur d'un lettre dans un mot
