@@ -1,4 +1,32 @@
+alphabet = ['T','F','A','L']
+l = 5
+d = 3
+y = 1
+e = .1
+facteur_epaisseur = .9
+alpha1,alpha2,alpha3= 12,-24,30
+from random import randint
+graine = [['&',90],['T',y, e, 0]]
 
+
+def passer_branche(mot,i):
+    j = i
+    n = len(mot)-1
+    
+    compteur_dyck = 1
+    
+    while i < n  and (compteur_dyck != 0) :
+        
+        if mot[i][0] == '[' :
+            
+            compteur_dyck += 1
+        if mot[i][0] == ']' :
+            compteur_dyck -= 1
+        
+        
+        i += 1
+        
+    return i
 
 def affichage_standard( mot, angle = 5, ratio_d = 0.95, ratio_l = 8/12):
     mem = []
@@ -18,7 +46,7 @@ def affichage_standard( mot, angle = 5, ratio_d = 0.95, ratio_l = 8/12):
             t.set_position(position)
             t.set_orientation(orientation)
             t.set_thickness(epaisseur)
-        elif char == "A":
+        elif char == "F":
             if t.forward(mot[i][1]) == "Erreur_collision":
                 if i < len(mot) - 1:
                     
@@ -27,9 +55,31 @@ def affichage_standard( mot, angle = 5, ratio_d = 0.95, ratio_l = 8/12):
                 t.forward(mot[i][1])
         t.set_thickness(t.line_thickness*ratio_d)
         i += 1
+
+
+
+
+def regle(indice,mot,alphabet):
+    lettre = mot[indice]
+    x = lettre[0]
+    if x == 'T' :
+        t1,t2,t3 = lettre[1::]
+        if t3 < l :
+            return [['F', t1, t2*facteur_epaisseur],['T',t1,t2,t3+1]] #p1
+        return [['['],['+',alpha1],['F',t1,t2],['A',d,t1,t2],[']'],['['],['+',alpha2],['&',alpha3],['F',t1,t2],['A',d,t1,t2],[']'],['['],['+',alpha2],['&',-alpha3],['F',t1,t2],['A',d,t1,t2],[']']] #p2
+    if x == 'A' :
+        p,taille,epaisseur = lettre[1::]
+        if p < d: 
+            return [['F', taille, epaisseur*facteur_epaisseur],['A',p+1,taille,epaisseur]] #p3
+        return [['F', taille, epaisseur*facteur_epaisseur],['['],['^',randint(-30,30)],['&',randint(-30,30)],['+',randint(-30,30)],['F', taille, epaisseur*facteur_epaisseur],['A',0,taille,epaisseur],[']'],['A',0,taille,epaisseur]] #p4
+
+    return [lettre]
+
 M = Morphisme(regle,alphabet)
 L = L_systeme(M,graine,alphabet)
+
 A = Interpretation_geometrique(affichage_standard,L)
 
-A.tracer(4)
+#A.tracer(4)
+
 
