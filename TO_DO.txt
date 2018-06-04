@@ -1,0 +1,13 @@
+- Faire une slide de dichotomie interprétation/Génération
+- Faire des slides sur la génération du mot
+-Faire des slides sur l'interprétation du mot
+-nouvelle image pour le plan
+
+
+CODE
+
+- courbures sur arbres persos
+- influence du vent et soleil + captures (gravité ?)
+- refaire les captures normal/rapetissement/mur avec textures bois
+
+-Tentative impression
