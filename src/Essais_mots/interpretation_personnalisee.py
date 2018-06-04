@@ -58,23 +58,6 @@ def affichage_standard( mot, angle = 5, ratio_d = 0.95, ratio_l = 8/12):
 
 
 
-
-def regle(indice,mot,alphabet):
-    lettre = mot[indice]
-    x = lettre[0]
-    if x == 'T' :
-        t1,t2,t3 = lettre[1::]
-        if t3 < l :
-            return [['F', t1, t2*facteur_epaisseur],['T',t1,t2,t3+1]] #p1
-        return [['['],['+',alpha1],['F',t1,t2],['A',d,t1,t2],[']'],['['],['+',alpha2],['&',alpha3],['F',t1,t2],['A',d,t1,t2],[']'],['['],['+',alpha2],['&',-alpha3],['F',t1,t2],['A',d,t1,t2],[']']] #p2
-    if x == 'A' :
-        p,taille,epaisseur = lettre[1::]
-        if p < d: 
-            return [['F', taille, epaisseur*facteur_epaisseur],['A',p+1,taille,epaisseur]] #p3
-        return [['F', taille, epaisseur*facteur_epaisseur],['['],['^',randint(-30,30)],['&',randint(-30,30)],['+',randint(-30,30)],['F', taille, epaisseur*facteur_epaisseur],['A',0,taille,epaisseur],[']'],['A',0,taille,epaisseur]] #p4
-
-    return [lettre]
-
 M = Morphisme(regle,alphabet)
 L = L_systeme(M,graine,alphabet)
 
