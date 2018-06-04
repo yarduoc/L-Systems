@@ -4,9 +4,9 @@ d = 3
 y = 1
 e = .1
 facteur_epaisseur = .9
-alpha1,alpha2,alpha3= 12,-24,30
+alpha1,alpha2,alpha3= 15,-24,30
 from random import randint
-graine = [['&',90],['T',y, e, 0]]
+graine = [['&',-90],['T',y, e, 0]]
 
 
 def passer_branche(mot,i):
