@@ -1,7 +1,7 @@
 - Faire une slide de dichotomie interprétation/Génération
 - Faire des slides sur la génération du mot
--Faire des slides sur l'interprétation du mot
--nouvelle image pour le plan
+- Faire des slides sur l'interprétation du mot
+- Nouvelle image pour le plan
 
 
 CODE
