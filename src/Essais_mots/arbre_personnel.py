@@ -1,7 +1,7 @@
- import os
- os.chdir("C:\\GitHub\\L-Systems\\src\\L_objets")
-  
- from interpret_geometrique import Interpretation_geometrique
+import os
+os.chdir("C:\\GitHub\\L-Systems\\src\\L_objets")
+
+from interpret_geometrique import Interpretation_geometrique
 
 
 
@@ -17,6 +17,7 @@ def regle(indice,mot,alphabet):
         p,taille,epaisseur = lettre[1::]
         if p < d: 
             return [['F', taille, epaisseur*facteur_epaisseur],['A',p+1,taille,epaisseur]] #p3
-        return [['F', taille, epaisseur*facteur_epaisseur],['['],['^',randint(0,180)],['&',randint(0,5)],['F', taille, epaisseur*facteur_epaisseur],['&',randint(0,5)],['F', taille, epaisseur*facteur_epaisseur],['&',randint(-30,30)],['F', taille, epaisseur*facteur_epaisseur],['&',randint(0,5)],['F', taille, epaisseur*facteur_epaisseur],['&',randint(0,5)],['F', taille, epaisseur*facteur_epaisseur],['&',randint(0,5)],['F', taille, epaisseur*facteur_epaisseur],['&',randint(0,5)],['F', taille, epaisseur*facteur_epaisseur],['&',randint(0,5)],['F', taille, epaisseur*facteur_epaisseur],['&',randint(0,5)],['F', taille, epaisseur*facteur_epaisseur],['&',randint(0,5)],['F', taille, epaisseur*facteur_epaisseur],['A',0,taille,epaisseur],[']'],['A',0,taille,epaisseur]] #p4
+        angle = randint(0,10)
+        return [['F', taille, epaisseur*facteur_epaisseur],['['],['^',randint(0,180)],['&',angle],['F', taille, epaisseur*facteur_epaisseur],['&',angle],['F', taille, epaisseur*facteur_epaisseur],['&',angle],['F', taille, epaisseur*facteur_epaisseur],['&',angle],['F', taille, epaisseur*facteur_epaisseur],['&',angle],['F', taille, epaisseur*facteur_epaisseur],['A',0,taille,epaisseur],[']'],['A',0,taille,epaisseur]] #p4
 
     return [lettre]
