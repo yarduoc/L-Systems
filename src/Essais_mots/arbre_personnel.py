@@ -1,8 +1,19 @@
 import os
 os.chdir("C:\\GitHub\\L-Systems\\src\\L_objets")
+from interpret_geometrique import *
 
-from interpret_geometrique import Interpretation_geometrique
+#Constants
+alphabet = ['T','F','A','L']
+l = 5
+d = 3
+y = 1
+e = .1
+facteur_epaisseur = .9
+alpha1,alpha2,alpha3= 15,-24,30
 
+graine = [['&',-90],['T',y, e, 0]]
+
+#
 
 
 def regle(indice,mot,alphabet):

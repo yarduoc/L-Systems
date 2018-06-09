@@ -1,7 +1,6 @@
 import os
 os.chdir("C:\\GitHub\\L-Systems\\src\\L_objets")
-
-from l_system import L_systeme
+from l_system import *
 
 class Interpretation_geometrique:
     
