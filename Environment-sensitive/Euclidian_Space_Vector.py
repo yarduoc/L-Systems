@@ -1,5 +1,5 @@
 """ 
-Allow the user to manipulate more easily vectors in a 3-Dimension Euclidian Space
+Allows the user to manipulate more easily vectors in a 3-Dimension Euclidian Space
 """
 from numpy import array
 from numpy import matrix
@@ -146,7 +146,7 @@ class Euclidian_Space_Vector :
         return vector
     
     def __mul__( self, arg):
-        if type(arg) == int :
+        if type(arg) == int or type(arg) == float :
             return self.get_homothetic_vector(arg)
         elif type(arg) == Euclidian_Space_Vector :
             return Euclidian_Space_Vector.canonical_scalar_product(self,arg)
